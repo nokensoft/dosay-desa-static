@@ -18,57 +18,131 @@ Situs statis (HTML + Tailwind CDN + Alpine.js), dengan satu skrip PHP kecil untu
 - **Mudah diganti**: nama situs, logo, kontak, cuaca, dan footer diatur dari `data.json`
 - **Responsif**: menu hamburger & tata letak ringkas di HP
 
-## Fitur Utama (untuk Laporan)
+## Laporan untuk Klien
 
-Ringkasan dalam bahasa sederhana, siap disalin ke laporan, proposal, atau pesan WhatsApp:
+Laporan dalam bahasa sederhana untuk klien (awam). Salin isi blok di bawah ini (tombol *copy* di kanan atas),
+lalu tempel ke Google Docs atau minta Google Gemini merapikannya (prompt ada di bawah).
 
 ```text
-FITUR UTAMA WEBSITE KAMPUNG DOSAY
+LAPORAN PENGEMBANGAN SISTEM
+Website Resmi Kampung Dosay
+Distrik Sentani Barat, Kabupaten Jayapura, Papua
 
-1. Delapan halaman informasi
-   Beranda, Tentang, Pemerintahan, Transparansi, Potensi,
-   Fasilitas Umum, Galeri, dan Kontak.
+Tanggal dibuat : 16/10/2026
 
-2. Tanggal, jam, dan cuaca langsung
-   Bagian paling atas website menampilkan tanggal dan jam (WIT)
-   yang terus berjalan, serta cuaca terkini di Kampung Dosay.
+IT Consultant  : Nokensoft
+Website        : www.nokensoft.com
+PIC            : Janzen Faidiban
+Phone          : 082199558191
+Email          : janzenfaidiban@gmail.com
 
-3. Profil kampung
-   Sejarah singkat, ciri khas, batas wilayah, dan foto
-   Kantor Kampung yang bisa digeser.
 
-4. Struktur pemerintahan dan layanan surat
-   Daftar perangkat kampung dan jenis surat keterangan
-   yang bisa diurus di kantor kampung.
+A. RINGKASAN
+Website Kampung Dosay telah dikembangkan sebagai media informasi resmi
+kampung: profil, pemerintahan, transparansi Dana Desa, potensi, fasilitas
+umum, galeri foto, dan kontak. Website dapat dibuka dengan nyaman melalui
+HP maupun komputer.
+
+
+B. MODUL DAN FITUR
+
+1. Tampilan Umum (semua halaman)
+- Bagian paling atas menampilkan tanggal dan jam (WIT) yang terus berjalan
+- Informasi cuaca terkini di Kampung Dosay
+- Menu navigasi ke semua halaman, otomatis menjadi menu ringkas di HP
+- Tombol WhatsApp yang selalu tersedia di pojok kanan bawah
+- Tombol kembali ke atas halaman
+- Alamat halaman pendek dan mudah diingat (contoh: kampungdosay.id/kontak/)
+
+2. Beranda
+- Foto-foto kampung yang berganti secara otomatis
+- Sambutan singkat dan foto Kantor Kampung yang bisa digeser
+- Pintasan ke halaman Potensi, Fasilitas, Transparansi, dan Pemerintahan
+- Cuplikan galeri foto
+- Statistik pengunjung: hari ini, minggu ini, bulan ini, dan tahun ini
+
+3. Tentang Kampung
+- Profil Kampung Dosay di kawasan Lembah Moi, kaki Pegunungan Cycloop
+- Ciri khas kampung
+- Batas wilayah (utara, timur, barat)
+- Foto Kantor Kampung yang bisa digeser
+
+4. Pemerintahan
+- Struktur perangkat kampung (Kepala Kampung, Sekretaris, Bendahara,
+  Kaur Umum, Kasi Pemerintahan, Ketua BPK)
+- Daftar layanan surat keterangan yang dapat diurus di kantor kampung
 
 5. Transparansi Dana Desa
-   Publikasi program dan kegiatan Dana Desa tahun berjalan
-   agar masyarakat dapat ikut memantau.
+- Publikasi 8 program prioritas Dana Desa tahun 2026
+- Masyarakat dapat ikut memantau penggunaan Dana Desa
 
-6. Potensi dan fasilitas kampung
-   Informasi wisata alam, pertanian, peternakan, dan fasilitas
-   umum (sekolah, puskesmas, rumah ibadah, dll.) yang bisa
-   disaring per kategori.
+6. Potensi Kampung
+- Wisata alam Kali Dansari dan Pegunungan Cycloop
+- Budidaya bunga anggrek dan pembibitan tanaman
+- Peternakan, perkebunan, dan usaha lokal
 
-7. Galeri foto
-   Kumpulan foto alam, wisata, dan budaya. Foto dapat
-   diperbesar dan dilihat satu per satu.
+7. Fasilitas Umum
+- Daftar fasilitas: kantor kampung, puskesmas, sekolah, rumah ibadah,
+  lapangan olahraga, dan tempat wisata
+- Tombol pilihan kategori untuk menampilkan fasilitas tertentu saja
 
-8. Hubungi langsung lewat WhatsApp
-   Pengunjung cukup mengisi formulir, lalu pesan otomatis
-   terkirim ke WhatsApp admin kampung.
+8. Galeri Foto
+- Foto alam, wisata, dan budaya Kampung Dosay
+- Tombol pilihan kategori (Wisata, Alam, Budaya)
+- Judul foto muncul saat foto disentuh/diarahkan kursor
+- Foto dapat diperbesar dan dilihat satu per satu
 
-9. Statistik pengunjung
-   Menampilkan jumlah pengunjung hari ini, minggu ini,
-   bulan ini, dan tahun ini. Satu pengunjung hanya dihitung
-   sekali agar angkanya jujur.
+9. Kontak
+- Alamat kantor kampung dan nomor Sekretaris Kampung
+- Formulir pesan yang langsung terkirim ke WhatsApp admin
+- Peta lokasi Kampung Dosay
 
-10. Mudah ditemukan di Google
-    Website sudah disiapkan agar mudah muncul di hasil
-    pencarian dan tampil rapi saat dibagikan di media sosial.
+10. Statistik Pengunjung
+- Menghitung jumlah pengunjung harian, mingguan, bulanan, dan tahunan
+- Satu pengunjung hanya dihitung sekali per periode agar angkanya jujur
+- Kunjungan mesin otomatis (robot) tidak ikut dihitung
 
-11. Nyaman dibuka di HP maupun komputer
-    Tampilan menyesuaikan ukuran layar secara otomatis.
+11. Mudah Ditemukan di Google
+- Setiap halaman memiliki judul dan deskripsi yang jelas untuk Google
+- Tampil rapi (judul, deskripsi, gambar) saat dibagikan di WhatsApp
+  dan media sosial
+- Daftar halaman dan foto (sitemap) siap didaftarkan ke Google
+- Halaman Peta Situs berisi daftar seluruh halaman website
+
+12. Halaman Pemberitahuan Gangguan
+- Halaman khusus bila alamat yang dibuka tidak ditemukan (404)
+- Halaman khusus bila terjadi gangguan server atau akses ditolak
+- Halaman "Sedang dalam Pemeliharaan" yang dapat diaktifkan saat
+  website diperbarui
+
+
+C. RENCANA PENGEMBANGAN LANJUTAN
+- Sejarah singkat kampung
+- Daftar usaha rintisan warga (UMKM)
+- Contoh/konsep surat dalam format Word yang dapat diunduh
+- Tautan media sosial resmi kampung
+- Saluran (Channel) WhatsApp kampung
+- Grup Facebook kampung
+```
+
+### Prompt Google Gemini (membuat Google Docs)
+
+Buka [Gemini](https://gemini.google.com), tempel prompt di bawah, lalu tempel isi laporan di atas tepat setelahnya:
+
+```text
+Buatkan dokumen Google Docs dari laporan di bawah ini dengan ketentuan:
+- Judul dokumen: Laporan Pengembangan Sistem - Website Kampung Dosay
+- Header setiap halaman (rata kanan, huruf kecil abu-abu):
+  www.nokensoft.com - Papua IT Consultant
+- Footer setiap halaman: nomor halaman, rata tengah
+- Bagian identitas (Tanggal, IT Consultant, Website, PIC, Phone, Email)
+  dibuat dalam tabel 2 kolom tanpa garis
+- Judul bagian (A, B, C) dan judul modul (1, 2, 3, ...) menggunakan
+  gaya Heading, isi modul berupa bullet list
+- Bahasa Indonesia, font rapi dan mudah dibaca, ukuran kertas A4
+- Jangan mengubah isi laporan
+
+Laporan:
 ```
 
 ## Struktur Folder
@@ -237,6 +311,14 @@ error_page 503 /error/503.html;
 ```
 
 Kembalikan tanda `#` untuk menonaktifkannya.
+
+## Kebutuhan Pengembangan Lanjutan
+- Sejarah singkat
+- Daftar usaha rintisan (UMKM)
+- Konsep surat file Word (file unduhan)
+- Media sosial
+- Channel WA
+- Group Facebook
 
 ## Lisensi
 
