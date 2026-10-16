@@ -27,6 +27,14 @@ var SITE = {
     }
 };
 
+/* URL relatif terhadap akar situs (SITE_ROOT diisi layout.js), agar path di data.json
+   seperti "./images/logo.png" tetap benar dari sub-folder (/tentang/, /kontak/, dst.).
+   URL absolut (https://, /, #, data:, mailto:) dibiarkan apa adanya. */
+function siteUrl(path) {
+    if (!path || /^([a-z][a-z0-9+.-]*:|\/|#)/i.test(path)) return path;
+    return (window.SITE_ROOT || './') + path.replace(/^\.\//, '');
+}
+
 /* Ambil nilai objek dari path bertitik, mis. "contact.phoneDisplay". */
 function getByPath(obj, path) {
     return path.split('.').reduce(function (acc, key) {
@@ -50,7 +58,7 @@ function applyBindings(data) {
             if (idx === -1) return;
             var attr = pair.slice(0, idx).trim();
             var val  = getByPath(data, pair.slice(idx + 1).trim());
-            if (val != null) el.setAttribute(attr, val);
+            if (val != null) el.setAttribute(attr, attr === 'src' ? siteUrl(val) : val);
         });
     });
 }
@@ -72,7 +80,7 @@ function applyMeta(data) {
 
     if (site.favicon) {
         document.querySelectorAll('link[rel~="icon"], link[rel="apple-touch-icon"], link[rel="shortcut icon"]')
-            .forEach(function (link) { link.setAttribute('href', site.favicon); });
+            .forEach(function (link) { link.setAttribute('href', siteUrl(site.favicon)); });
     }
 }
 
@@ -221,7 +229,7 @@ function initHeroSlideshow(images) {
     var slides = images.map(function (src) {
         var slide = document.createElement('div');
         slide.className = 'hero-slide';
-        slide.style.backgroundImage = "url('" + src + "')";
+        slide.style.backgroundImage = "url('" + siteUrl(src) + "')";
         slideshow.appendChild(slide);
         return slide;
     });
@@ -278,7 +286,7 @@ function initVisitorCounter() {
     var box = document.getElementById('visitor-counter');
     var fmt = new Intl.NumberFormat('id-ID');
 
-    fetch('./api/visitor.php', { method: 'POST', cache: 'no-store' })
+    fetch(siteUrl('api/visitor.php'), { method: 'POST', cache: 'no-store' })
         .then(function (res) {
             if (!res.ok) throw new Error('HTTP ' + res.status);
             return res.json();
@@ -339,7 +347,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initClock(SITE.weather);
     initVisitorCounter();
 
-    fetch('./data.json', { cache: 'no-cache' })
+    fetch(siteUrl('data.json'), { cache: 'no-cache' })
         .then(function (res) {
             if (!res.ok) throw new Error('HTTP ' + res.status);
             return res.json();

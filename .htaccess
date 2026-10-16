@@ -1,0 +1,18 @@
+# ============================================================
+# URL BERSIH (tanpa .html) — Apache
+# Setiap halaman berada di folder sendiri: /kontak/ → kontak/index.html
+# ============================================================
+
+DirectoryIndex index.html index.php
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # URL lama /kontak.html → /kontak/ (301, agar link & indeks Google lama tetap jalan)
+    RewriteRule ^(tentang|pemerintahan|transparansi|potensi|fasilitas|galeri|kontak)\.html$ /$1/ [R=301,L]
+
+    # /index.html atau /kontak/index.html → / atau /kontak/
+    RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+    RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
+</IfModule>

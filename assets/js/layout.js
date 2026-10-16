@@ -5,23 +5,42 @@
    Harus dimuat SEBELUM Alpine.js menginisialisasi (Alpine pakai defer).
    ============================================================ */
 (function () {
-    var NAV_ITEMS = [
-        { page: 'index',        href: 'index.html',        label: 'Beranda' },
-        { page: 'tentang',      href: 'tentang.html',      label: 'Tentang' },
-        { page: 'pemerintahan', href: 'pemerintahan.html', label: 'Pemerintahan' },
-        { page: 'transparansi', href: 'transparansi.html', label: 'Transparansi' },
-        { page: 'potensi',      href: 'potensi.html',      label: 'Potensi' },
-        { page: 'fasilitas',    href: 'fasilitas.html',    label: 'Fasilitas' },
-        { page: 'galeri',       href: 'galeri.html',       label: 'Galeri' },
-        { page: 'kontak',       href: 'kontak.html',       label: 'Kontak' }
-    ];
+    /* Akar situs, dihitung dari lokasi file ini (assets/js/layout.js → ../../).
+       Dengan begitu tautan & gambar benar dari halaman mana pun (/, /tentang/, dst.),
+       juga bila situs dipasang di sub-folder. Dipakai juga oleh main.js. */
+    var ROOT = (function () {
+        var src = document.currentScript && document.currentScript.src;
+        return src ? new URL('../../', src).href : './';
+    })();
+    window.SITE_ROOT = ROOT;
 
-    /* Halaman aktif: dari <body data-page>, atau dari nama file pada URL. */
+    /* URL halaman: folder dengan index.html → tanpa ".html" (mis. /kontak/).
+       Saat dibuka langsung dari disk (file://), index.html ditambahkan agar tetap bisa diklik. */
+    function pageUrl(slug) {
+        var url = ROOT + (slug ? slug + '/' : '');
+        return location.protocol === 'file:' ? url + 'index.html' : url;
+    }
+
+    var NAV_ITEMS = [
+        { page: 'index',        slug: '',             label: 'Beranda' },
+        { page: 'tentang',      slug: 'tentang',      label: 'Tentang' },
+        { page: 'pemerintahan', slug: 'pemerintahan', label: 'Pemerintahan' },
+        { page: 'transparansi', slug: 'transparansi', label: 'Transparansi' },
+        { page: 'potensi',      slug: 'potensi',      label: 'Potensi' },
+        { page: 'fasilitas',    slug: 'fasilitas',    label: 'Fasilitas' },
+        { page: 'galeri',       slug: 'galeri',       label: 'Galeri' },
+        { page: 'kontak',       slug: 'kontak',       label: 'Kontak' }
+    ].map(function (item) {
+        item.href = pageUrl(item.slug);
+        return item;
+    });
+
+    /* Halaman aktif: dari <body data-page>, atau dari nama folder pada URL. */
     function currentPage() {
         var fromBody = document.body.getAttribute('data-page');
         if (fromBody) return fromBody;
-        var file = location.pathname.split('/').pop().replace(/\.html?$/, '');
-        return file || 'index';
+        var parts = location.pathname.replace(/index\.html?$/, '').split('/').filter(Boolean);
+        return parts.pop() || 'index';
     }
 
     var active = currentPage();
@@ -68,8 +87,8 @@
         ' class="bg-white border-b border-stone-200 sticky top-0 z-50 shadow-md">' +
             '<div class="max-w-7xl mx-auto">' +
                 '<div class="flex justify-between items-center px-4 sm:px-6 py-4">' +
-                    '<a href="index.html" aria-label="Kampung Dosay - Beranda" class="flex items-center gap-3">' +
-                        '<img src="./images/logo-kabupaten-jayapura.png" alt="Logo Kampung Dosay" class="h-10 md:h-12 w-auto"' +
+                    '<a href="' + pageUrl('') + '" aria-label="Kampung Dosay - Beranda" class="flex items-center gap-3">' +
+                        '<img src="' + ROOT + 'images/logo-kabupaten-jayapura.png" alt="Logo Kampung Dosay" class="h-10 md:h-12 w-auto"' +
                         ' data-bind-attr="src:site.logo,alt:site.name" onerror="this.style.display=\'none\'">' +
                         '<div>' +
                             '<span class="logo-text text-xl md:text-2xl font-bold tracking-tight text-emerald-900" data-bind-text="site.logoText.primary">KAMPUNG</span> ' +
@@ -103,7 +122,7 @@
                     /* Identitas */
                     '<div class="text-center md:text-left">' +
                         '<div class="flex items-center justify-center md:justify-start gap-3 mb-4">' +
-                            '<img src="./images/logo-kabupaten-jayapura.png" alt="Logo Kampung Dosay" class="h-16 opacity-80 rounded-full"' +
+                            '<img src="' + ROOT + 'images/logo-kabupaten-jayapura.png" alt="Logo Kampung Dosay" class="h-16 opacity-80 rounded-full"' +
                             ' data-bind-attr="src:site.logo,alt:site.name" onerror="this.style.display=\'none\'">' +
                             '<p class="logo-text text-xl font-bold text-white" data-bind-text="hero.title">KAMPUNG DOSAY</p>' +
                         '</div>' +
@@ -146,7 +165,7 @@
                     '<p data-bind-text="footer.copyright">© ' + year + ' Pemerintah Kampung Dosay. Hak cipta dilindungi.</p>' +
                     '<p class="flex items-center gap-2">' +
                         '<a href="https://nokensoft.com" target="_blank" rel="noopener" data-bind-attr="href:footer.poweredByUrl" aria-label="Nokensoft.com">' +
-                            '<img src="./images/nokensoft-logo.png" alt="Logo Nokensoft" width="24" height="24" loading="lazy" class="h-6 w-auto" onerror="this.style.display=\'none\'">' +
+                            '<img src="' + ROOT + 'images/nokensoft-logo.png" alt="Logo Nokensoft" width="24" height="24" loading="lazy" class="h-6 w-auto" onerror="this.style.display=\'none\'">' +
                         '</a>' +
                         '<span>Powered by <a href="https://nokensoft.com" target="_blank" rel="noopener" class="text-emerald-400 hover:underline" data-bind-text="footer.poweredByName" data-bind-attr="href:footer.poweredByUrl">Nokensoft.com</a></span>' +
                     '</p>' +
