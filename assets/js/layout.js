@@ -127,7 +127,6 @@
                             '<p class="logo-text text-xl font-bold text-white" data-bind-text="hero.title">KAMPUNG DOSAY</p>' +
                         '</div>' +
                         '<p class="text-sm text-emerald-400 leading-relaxed" data-bind-text="site.tagline">Distrik Sentani Barat &bull; Kabupaten Jayapura &bull; Provinsi Papua</p>' +
-                        '<p class="text-xs mt-3 text-emerald-400" data-bind-text="footer.note">Menjaga warisan budaya Lembah Moi dan keindahan alam Pegunungan Cycloop — Papua.</p>' +
                     '</div>' +
                     /* Menu */
                     '<div class="text-center md:text-left">' +
