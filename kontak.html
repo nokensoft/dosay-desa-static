@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kontak | Kampung Dosay</title>
+    <meta name="title" content="Kontak | Kampung Dosay">
+    <meta name="description" content="Hubungi Pemerintah Kampung Dosay, Distrik Sentani Barat, Kabupaten Jayapura, melalui WhatsApp.">
+    <meta name="keywords" content="Kontak Kampung Dosay, WhatsApp Kampung Dosay, Sekretaris Kampung, Sentani Barat">
+    <meta name="author" content="Kampung Dosay">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kontak | Kampung Dosay">
+    <meta property="og:description" content="Hubungi Pemerintah Kampung Dosay melalui WhatsApp.">
+    <meta property="og:image" content="./images/logo-kabupaten-jayapura.png">
+    <meta property="og:site_name" content="Kampung Dosay">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kontak | Kampung Dosay">
+    <meta name="twitter:description" content="Hubungi Pemerintah Kampung Dosay melalui WhatsApp.">
+    <meta name="twitter:image" content="./images/logo-kabupaten-jayapura.png">
+
+    <link rel="icon" type="image/png" href="./images/logo-kabupaten-jayapura.png">
+    <link rel="apple-touch-icon" href="./images/logo-kabupaten-jayapura.png">
+    <link rel="shortcut icon" href="./images/logo-kabupaten-jayapura.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <meta name="theme-color" content="#1a3c34">
+    <meta name="msapplication-TileColor" content="#1a3c34">
+</head>
+<body data-page="kontak" data-page-title="Kontak" class="bg-stone-50 text-stone-800">
+
+    <div id="site-header"></div>
+
+    <main>
+        <!-- ===== PAGE HEADER ===== -->
+        <section class="relative overflow-hidden bg-emerald-950">
+            <div class="page-header-bg absolute inset-0 opacity-40" style="background-image:url('./images/gallery/dosay-berkemah-dansari.png')" aria-hidden="true"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-emerald-950/30 to-emerald-950/80" aria-hidden="true"></div>
+            <div class="relative max-w-7xl mx-auto px-6 py-20 md:py-28 text-center">
+                <h1 class="section-title text-4xl md:text-6xl font-bold text-white">Hubungi Kami</h1>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
+            </div>
+        </section>
+
+        <!-- ===== KONTAK ===== -->
+        <section class="py-16 md:py-24 bg-emerald-900 text-white">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Info Kontak -->
+                    <div>
+                        <div class="flex items-start gap-4 mb-8">
+                            <i class="fa-solid fa-location-dot text-amber-400 text-2xl mt-1 w-7 text-center"></i>
+                            <div>
+                                <div class="font-medium text-lg">Alamat</div>
+                                <div class="text-emerald-200 leading-relaxed" data-bind-html="contact.addressHtml">Kampung Dosay, Distrik Sentani Barat,<br>Kabupaten Jayapura, Provinsi Papua</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 mb-10">
+                            <i class="fa-brands fa-whatsapp text-amber-400 text-2xl mt-1 w-7 text-center"></i>
+                            <div>
+                                <div class="font-medium text-lg">Telp / WhatsApp</div>
+                                <a href="#" data-wa-link data-wa-number="contact.phoneWhatsapp" target="_blank" rel="noopener"
+                                   class="text-emerald-200 hover:text-amber-400 transition-colors">
+                                    <span data-bind-text="contact.phoneDisplay">+62 822-1663-8052</span>
+                                    <span class="block text-sm text-emerald-300">(<span data-bind-text="contact.phoneLabel">Sekretaris Kampung</span>)</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6 text-3xl">
+                            <a href="#" target="_blank" rel="noopener" class="hover:text-amber-400 transition-colors" aria-label="Facebook Kampung Dosay" data-bind-attr="href:contact.social.facebook">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener" class="hover:text-amber-400 transition-colors" aria-label="Instagram Kampung Dosay" data-bind-attr="href:contact.social.instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" data-wa-link data-wa-prefill target="_blank" rel="noopener" class="hover:text-amber-400 transition-colors" aria-label="WhatsApp Kampung Dosay">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Form Kontak → langsung ke WhatsApp (contact.whatsappNumber) -->
+                    <form onsubmit="kirimPesan(event)" class="space-y-6">
+                        <div>
+                            <label for="nama" class="sr-only">Nama lengkap</label>
+                            <input type="text" id="nama" placeholder="Nama lengkap" required
+                                   class="w-full bg-white/10 border border-white/30 px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400">
+                        </div>
+                        <div>
+                            <label for="telpon" class="sr-only">Nomor HP / WhatsApp</label>
+                            <input type="tel" id="telpon" placeholder="Nomor HP / WhatsApp" required
+                                   class="w-full bg-white/10 border border-white/30 px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400">
+                        </div>
+                        <div class="relative">
+                            <label for="keperluan" class="sr-only">Keperluan</label>
+                            <select id="keperluan" required
+                                    class="w-full bg-white/10 border border-white/30 px-6 py-4 text-emerald-100 focus:outline-none focus:border-amber-400 appearance-none option-custom">
+                                <option value="" disabled selected>Pilih Keperluan...</option>
+                                <option value="Wisata Kampung">Wisata Kampung Dosay</option>
+                                <option value="Layanan Administrasi">Layanan Administrasi</option>
+                                <option value="Investasi & Kemitraan">Investasi &amp; Kemitraan</option>
+                                <option value="Kegiatan Budaya">Kegiatan Budaya &amp; Adat</option>
+                                <option value="Informasi Umum">Informasi Umum</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down absolute right-6 top-1/2 -translate-y-1/2 text-emerald-200 pointer-events-none"></i>
+                        </div>
+                        <div>
+                            <label for="pesan" class="sr-only">Pesan</label>
+                            <textarea id="pesan" rows="5" placeholder="Tulis pesan atau pertanyaan Anda di sini..." required
+                                      class="w-full bg-white/10 border border-white/30 px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400 resize-none"></textarea>
+                        </div>
+                        <button type="submit"
+                                class="w-full bg-amber-500 hover:bg-amber-400 transition-colors text-emerald-900 font-semibold py-5 tracking-widest flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> KIRIM PESAN KE WHATSAPP
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PETA ===== -->
+        <section class="bg-stone-200">
+            <iframe title="Peta lokasi Kampung Dosay"
+                    src="https://www.google.com/maps?q=Kampung+Dosay,+Sentani+Barat,+Jayapura&z=14&output=embed"
+                    class="w-full h-[360px] md:h-[440px] border-0 block"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen></iframe>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="./assets/js/layout.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

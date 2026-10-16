@@ -1,0 +1,160 @@
+/* ============================================================
+   KAMPUNG DOSAY — GAYA BERSAMA (dipakai semua halaman)
+   ============================================================ */
+
+:root {
+    --primary: #1a3c34;
+    --accent: #f59e0b;
+}
+
+body {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* HERO SLIDESHOW */
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    will-change: opacity, transform;
+}
+
+.hero-slide.is-active {
+    opacity: 1;
+    z-index: 1;
+}
+
+@keyframes kenburns-in {
+    from { transform: scale(1); }
+    to   { transform: scale(1.18); }
+}
+
+@keyframes kenburns-out {
+    from { transform: scale(1.18); }
+    to   { transform: scale(1); }
+}
+
+.hero-slide.zoom-in  { animation: kenburns-in 8s ease-out forwards; }
+.hero-slide.zoom-out { animation: kenburns-out 8s ease-out forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide { transition: opacity 0.4s ease; }
+    .hero-slide.zoom-in,
+    .hero-slide.zoom-out { animation: none; }
+}
+
+/* NAVIGATION LINKS */
+.nav-link {
+    position: relative;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+    color: #d97706;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: #f59e0b;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.nav-active::after {
+    width: 100%;
+}
+
+.nav-link.nav-active {
+    color: #d97706;
+}
+
+/* Di menu mobile, garis bawah diganti penanda kiri */
+.nav-link-mobile::after { display: none; }
+.nav-link-mobile.nav-active {
+    color: #d97706;
+    border-left: 3px solid #f59e0b;
+    padding-left: 0.75rem;
+}
+
+/* SECTION TITLES & CARDS */
+.section-title,
+.logo-text {
+    font-family: 'Playfair Display', serif;
+}
+
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.option-custom option {
+    background-color: #ffffff !important;
+    color: #064e3b !important;
+}
+
+/* UTILITIES */
+html {
+    scroll-behavior: smooth;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+section[id] {
+    scroll-margin-top: 96px;
+}
+
+/* Batik/ornamen Papua pattern subtle */
+.papua-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f59e0b' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* PAGE HEADER (banner judul tiap halaman) */
+.page-header-bg {
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.05);
+}
+
+/* GALERI: judul di tengah foto, muncul saat hover / fokus */
+.gallery-item .gallery-overlay {
+    background-color: rgb(2 44 34 / 0);
+    transition: background-color .35s ease;
+}
+.gallery-item .gallery-caption {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .35s ease, transform .35s ease;
+}
+.gallery-item:hover .gallery-overlay,
+.gallery-item:focus-visible .gallery-overlay {
+    background-color: rgb(2 44 34 / 0.6);
+}
+.gallery-item:hover .gallery-caption,
+.gallery-item:focus-visible .gallery-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FLOATING ACTION BUTTONS (WhatsApp & Back to Top) */
+.fab {
+    transition: opacity .3s ease, transform .3s ease, background-color .3s ease, box-shadow .3s ease;
+}
+
+/* Angka jam tidak "bergoyang" saat berganti detik */
+.tabular-nums {
+    font-variant-numeric: tabular-nums;
+}

@@ -1,11 +1,5 @@
 {
-  "_info": "Ubah nilai pada file ini untuk menyesuaikan website ke kampung/desa lain (nama situs, logo, favicon, kontak, meta, dll.). Tidak perlu menyentuh index.html.",
-
-  "topbar": {
-    "textHtml": "Website ini masih dalam <strong>tahap pengembangan</strong> dan merupakan bentuk usulan atau draf yang dibuat serta diajukan oleh",
-    "linkName": "Nokensoft.com",
-    "linkUrl": "https://nokensoft.com"
-  },
+  "_info": "Ubah nilai pada file ini untuk menyesuaikan website ke kampung/desa lain (nama situs, logo, favicon, kontak, cuaca, meta, dll.). Tidak perlu menyentuh file HTML.",
 
   "site": {
     "name": "Kampung Dosay",
@@ -33,6 +27,14 @@
     "twitterImage": "./images/logo-kabupaten-jayapura.png"
   },
 
+  "weather": {
+    "locationName": "Dosay, Sentani Barat",
+    "latitude": -2.556,
+    "longitude": 140.388,
+    "timezone": "Asia/Jayapura",
+    "timezoneLabel": "WIT"
+  },
+
   "hero": {
     "title": "KAMPUNG DOSAY",
     "subtitle": "Distrik Sentani Barat • Kabupaten Jayapura • Papua",
@@ -47,11 +49,11 @@
 
   "contact": {
     "addressHtml": "Kampung Dosay, Distrik Sentani Barat,<br>Kabupaten Jayapura, Provinsi Papua",
-    "phoneDisplay": "+62 8xx-xxxx-xxxx",
-    "whatsappNumber": "628xxxxxxxxx",
+    "phoneDisplay": "+62 822-1663-8052",
+    "phoneLabel": "Sekretaris Kampung",
+    "phoneWhatsapp": "6282216638052",
+    "whatsappNumber": "6282199558191",
     "whatsappMessage": "Halo Admin Kampung Dosay, saya ingin bertanya seputar Kampung Dosay.",
-    "email": "kampungdosay@gmail.com",
-    "operationalHours": "Senin – Jumat: 08.00 – 16.00 WIT",
     "social": {
       "facebook": "#",
       "instagram": "#"

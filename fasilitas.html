@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fasilitas Umum | Kampung Dosay</title>
+    <meta name="title" content="Fasilitas Umum | Kampung Dosay">
+    <meta name="description" content="Fasilitas umum Kampung Dosay: pemerintahan, kesehatan, keamanan, pendidikan, peribadatan, olahraga, dan destinasi wisata.">
+    <meta name="keywords" content="Fasilitas Umum Kampung Dosay, Puskesmas Dosay, SD Negeri Dosay, Kali Dansari, Sentani Barat">
+    <meta name="author" content="Kampung Dosay">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fasilitas Umum | Kampung Dosay">
+    <meta property="og:description" content="Fasilitas umum pendukung pelayanan masyarakat di Kampung Dosay.">
+    <meta property="og:image" content="./images/logo-kabupaten-jayapura.png">
+    <meta property="og:site_name" content="Kampung Dosay">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fasilitas Umum | Kampung Dosay">
+    <meta name="twitter:description" content="Fasilitas umum pendukung pelayanan masyarakat di Kampung Dosay.">
+    <meta name="twitter:image" content="./images/logo-kabupaten-jayapura.png">
+
+    <link rel="icon" type="image/png" href="./images/logo-kabupaten-jayapura.png">
+    <link rel="apple-touch-icon" href="./images/logo-kabupaten-jayapura.png">
+    <link rel="shortcut icon" href="./images/logo-kabupaten-jayapura.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <meta name="theme-color" content="#1a3c34">
+    <meta name="msapplication-TileColor" content="#1a3c34">
+</head>
+<body data-page="fasilitas" data-page-title="Fasilitas Umum" class="bg-stone-50 text-stone-800">
+
+    <div id="site-header"></div>
+
+    <main x-data="{
+            filter: 'Semua',
+            items: [
+                { nama: 'Kantor Kampung Dosay',        kategori: 'Pemerintahan',     deskripsi: 'Pusat pelayanan administrasi dan tata kelola pemerintahan Kampung Dosay.',       gambar: 'https://easysyntax.github.io/placeholders/Square%20Post%201080%20x%201080.svg', ikon: 'fa-solid fa-building-flag' },
+                { nama: 'Puskesmas Dosay',             kategori: 'Kesehatan',        deskripsi: 'Fasilitas kesehatan utama untuk pelayanan medis masyarakat Sentani Barat.',      gambar: './images/puskesmas-dosay.png',                                                ikon: 'fa-solid fa-house-medical' },
+                { nama: 'Poliklinik Kesehatan',        kategori: 'Kesehatan',        deskripsi: 'Layanan kesehatan tingkat pertama untuk penanganan medis warga sekitar.',        gambar: 'https://easysyntax.github.io/placeholders/Square%20Post%201080%20x%201080.svg', ikon: 'fa-solid fa-user-doctor' },
+                { nama: 'POLSEK Sentani Barat',        kategori: 'Keamanan',         deskripsi: 'Pos komando kepolisian sektor untuk menjaga keamanan dan ketertiban wilayah.',   gambar: 'https://easysyntax.github.io/placeholders/Square%20Post%201080%20x%201080.svg', ikon: 'fa-solid fa-shield-halved' },
+                { nama: 'SD Negeri Dosay',             kategori: 'Pendidikan',       deskripsi: 'Sarana pendidikan dasar formal untuk mencerdaskan generasi muda kampung.',       gambar: './images/sd-negeri-dosay.png',                                                ikon: 'fa-solid fa-school' },
+                { nama: 'SMP Negeri 3 Sentani Barat',  kategori: 'Pendidikan',       deskripsi: 'Fasilitas pendidikan tingkat menengah pertama di kawasan Kampung Dosay.',        gambar: 'https://easysyntax.github.io/placeholders/Square%20Post%201080%20x%201080.svg', ikon: 'fa-solid fa-graduation-cap' },
+                { nama: 'Gereja Jemaat Lokal',         kategori: 'Peribadatan',      deskripsi: 'Rumah ibadah dan pusat kegiatan rohani bagi umat Kristiani setempat.',           gambar: './images/gereja-gki-efata-dosay.png',                                         ikon: 'fa-solid fa-church' },
+                { nama: 'Masjid Kampung',              kategori: 'Peribadatan',      deskripsi: 'Sarana ibadah dan pembinaan keagamaan bagi umat Muslim di Dosay.',               gambar: 'https://easysyntax.github.io/placeholders/Square%20Post%201080%20x%201080.svg', ikon: 'fa-solid fa-mosque' },
+                { nama: 'Lapangan Sepak Bola',         kategori: 'Olahraga',         deskripsi: 'Wadah aktivitas olahraga, turnamen lokal, dan ruang publik komunitas.',          gambar: './images/lapangan-sepak-bola.png',                                            ikon: 'fa-solid fa-futbol' },
+                { nama: 'Wisata Kali Dansari',         kategori: 'Destinasi Wisata', deskripsi: 'Ekowisata pemandian alam dengan air pegunungan jernih dan asri.',                 gambar: './images/dosay-kali-dansari.png',                                             ikon: 'fa-solid fa-compass-drafting' },
+                { nama: 'Spot Foto Sunset & Sunrise',  kategori: 'Destinasi Wisata', deskripsi: 'Area pandang estetis berlatarkan benteng alam Pegunungan Cycloop.',              gambar: 'https://easysyntax.github.io/placeholders/Square%20Post%201080%20x%201080.svg', ikon: 'fa-solid fa-camera-retro' }
+            ],
+            get kategori() {
+                return ['Semua'].concat(this.items.map(i => i.kategori).filter((k, idx, arr) => arr.indexOf(k) === idx));
+            },
+            jumlah(k) {
+                return k === 'Semua' ? this.items.length : this.items.filter(i => i.kategori === k).length;
+            }
+         }">
+
+        <!-- ===== PAGE HEADER ===== -->
+        <section class="relative overflow-hidden bg-emerald-950">
+            <div class="page-header-bg absolute inset-0 opacity-40" style="background-image:url('./images/sd-negeri-dosay.png')" aria-hidden="true"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-emerald-950/30 to-emerald-950/80" aria-hidden="true"></div>
+            <div class="relative max-w-7xl mx-auto px-6 py-20 md:py-28 text-center">
+                <h1 class="section-title text-4xl md:text-6xl font-bold text-white">Fasilitas Umum</h1>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
+            </div>
+        </section>
+
+        <!-- ===== DAFTAR FASILITAS ===== -->
+        <section class="py-12 md:py-16 bg-stone-100">
+            <div class="max-w-7xl mx-auto px-6">
+
+                <!-- Filter kategori -->
+                <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-12" role="group" aria-label="Filter kategori fasilitas">
+                    <template x-for="k in kategori" :key="k">
+                        <button type="button"
+                                @click="filter = k"
+                                :aria-pressed="filter === k"
+                                :class="filter === k
+                                    ? 'bg-emerald-900 text-white border-emerald-900 shadow-md'
+                                    : 'bg-white text-emerald-900 border-stone-300 hover:border-amber-500 hover:text-amber-600'"
+                                class="px-4 md:px-5 py-2 rounded-full border text-sm font-medium transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400/50">
+                            <span x-text="k"></span>
+                            <span class="ml-1 text-xs opacity-70" x-text="'(' + jumlah(k) + ')'"></span>
+                        </button>
+                    </template>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <template x-for="(fasilitas, index) in items" :key="fasilitas.nama">
+                        <div x-show="filter === 'Semua' || filter === fasilitas.kategori"
+                             x-transition:enter="transition ease-out duration-300"
+                             x-transition:enter-start="opacity-0 scale-95"
+                             x-transition:enter-end="opacity-100 scale-100"
+                             class="group bg-white border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 rounded-lg flex flex-col">
+
+                            <div class="aspect-video w-full overflow-hidden bg-stone-200">
+                                <img :src="fasilitas.gambar"
+                                     :alt="fasilitas.nama"
+                                     loading="lazy"
+                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            </div>
+
+                            <div class="p-6 flex-1">
+                                <div class="flex items-start gap-3 mb-2">
+                                    <div class="text-xl text-amber-500 mt-1 flex-shrink-0">
+                                        <i :class="fasilitas.ikon"></i>
+                                    </div>
+                                    <h2 class="text-xl font-bold text-emerald-950 leading-tight" x-text="fasilitas.nama"></h2>
+                                </div>
+                                <p class="text-stone-600 text-sm leading-relaxed" x-text="fasilitas.deskripsi"></p>
+                            </div>
+
+                            <div class="px-6 pb-6">
+                                <div class="w-full h-[2px] bg-stone-100 group-hover:bg-amber-400 transition-colors duration-300"></div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="./assets/js/layout.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

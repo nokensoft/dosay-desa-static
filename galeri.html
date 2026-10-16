@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Galeri | Kampung Dosay</title>
+    <meta name="title" content="Galeri | Kampung Dosay">
+    <meta name="description" content="Galeri foto keindahan alam, wisata, dan budaya Kampung Dosay, Distrik Sentani Barat, Kabupaten Jayapura.">
+    <meta name="keywords" content="Galeri Kampung Dosay, Foto Kali Dansari, Anggrek, Tarian Tradisional, Sentani Barat">
+    <meta name="author" content="Kampung Dosay">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Galeri | Kampung Dosay">
+    <meta property="og:description" content="Galeri foto keindahan alam, wisata, dan budaya Kampung Dosay.">
+    <meta property="og:image" content="./images/gallery/dosay-kali-dansari.png">
+    <meta property="og:site_name" content="Kampung Dosay">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Galeri | Kampung Dosay">
+    <meta name="twitter:description" content="Galeri foto keindahan alam, wisata, dan budaya Kampung Dosay.">
+    <meta name="twitter:image" content="./images/gallery/dosay-kali-dansari.png">
+
+    <link rel="icon" type="image/png" href="./images/logo-kabupaten-jayapura.png">
+    <link rel="apple-touch-icon" href="./images/logo-kabupaten-jayapura.png">
+    <link rel="shortcut icon" href="./images/logo-kabupaten-jayapura.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <meta name="theme-color" content="#1a3c34">
+    <meta name="msapplication-TileColor" content="#1a3c34">
+</head>
+<body data-page="galeri" data-page-title="Galeri" class="bg-stone-50 text-stone-800">
+
+    <div id="site-header"></div>
+
+    <main x-data="{
+            filter: 'Semua',
+            lightboxOpen: false,
+            activeIndex: 0,
+            items: [
+                { img: './images/gallery/dosay-kali-dansari.png',      alt: 'Keindahan alami Kali Dansari',          caption: 'Wisata Kali Dansari',      kategori: 'Wisata' },
+                { img: './images/gallery/dosay-kali-dansari-2.png',    alt: 'Aliran jernih Kali Dansari',            caption: 'Jernihnya Kali Dansari',   kategori: 'Alam' },
+                { img: './images/gallery/dosay-berkemah-dansari.png',  alt: 'Aktivitas berkemah di Kali Dansari',    caption: 'Area Berkemah Dansari',    kategori: 'Wisata' },
+                { img: './images/gallery/dosay-anggrek.png',           alt: 'Budidaya bunga anggrek Kampung Dosay',  caption: 'Taman & Galeri Anggrek',   kategori: 'Alam' },
+                { img: './images/gallery/dosay-traditional-dance.png', alt: 'Tarian tradisional masyarakat Dosay',   caption: 'Tarian Tradisional',       kategori: 'Budaya' }
+            ],
+            get kategori() {
+                return ['Semua'].concat(this.items.map(i => i.kategori).filter((k, idx, arr) => arr.indexOf(k) === idx));
+            },
+            get visible() {
+                return this.filter === 'Semua' ? this.items : this.items.filter(i => i.kategori === this.filter);
+            },
+            get active() {
+                return this.visible[this.activeIndex] || {};
+            },
+            open(i) { this.activeIndex = i; this.lightboxOpen = true; },
+            next() { this.activeIndex = (this.activeIndex + 1) % this.visible.length; },
+            prev() { this.activeIndex = (this.activeIndex - 1 + this.visible.length) % this.visible.length; }
+         }"
+         x-effect="document.body.style.overflow = lightboxOpen ? 'hidden' : ''"
+         @keydown.escape.window="lightboxOpen = false"
+         @keydown.arrow-right.window="lightboxOpen && next()"
+         @keydown.arrow-left.window="lightboxOpen && prev()">
+
+        <!-- ===== PAGE HEADER ===== -->
+        <section class="relative overflow-hidden bg-emerald-950">
+            <div class="page-header-bg absolute inset-0 opacity-40" style="background-image:url('./images/gallery/dosay-traditional-dance.png')" aria-hidden="true"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-emerald-950/30 to-emerald-950/80" aria-hidden="true"></div>
+            <div class="relative max-w-7xl mx-auto px-6 py-20 md:py-28 text-center">
+                <h1 class="section-title text-4xl md:text-6xl font-bold text-white">Galeri Kampung Dosay</h1>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
+            </div>
+        </section>
+
+        <!-- ===== GRID GALERI ===== -->
+        <section class="py-12 md:py-16 bg-stone-100">
+            <div class="max-w-7xl mx-auto px-6">
+
+                <!-- Filter kategori -->
+                <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-12" role="group" aria-label="Filter kategori foto">
+                    <template x-for="k in kategori" :key="k">
+                        <button type="button"
+                                @click="filter = k"
+                                :aria-pressed="filter === k"
+                                :class="filter === k
+                                    ? 'bg-emerald-900 text-white border-emerald-900 shadow-md'
+                                    : 'bg-white text-emerald-900 border-stone-300 hover:border-amber-500 hover:text-amber-600'"
+                                class="px-4 md:px-5 py-2 rounded-full border text-sm font-medium transition-all focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400/50"
+                                x-text="k"></button>
+                    </template>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <template x-for="(item, index) in visible" :key="item.img">
+                        <button type="button"
+                                @click="open(index)"
+                                :aria-label="'Perbesar foto: ' + item.caption"
+                                class="gallery-item group relative aspect-square overflow-hidden cursor-pointer rounded-lg shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400/60">
+                            <img :src="item.img"
+                                 :alt="item.alt"
+                                 loading="lazy"
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                            <!-- Judul di tengah foto, muncul saat hover -->
+                            <div class="gallery-overlay absolute inset-0 flex flex-col items-center justify-center gap-3 p-4 text-center">
+                                <span class="gallery-caption section-title text-white text-lg md:text-2xl font-bold drop-shadow-lg" x-text="item.caption"></span>
+                                <span class="gallery-caption w-10 h-0.5 bg-amber-400"></span>
+                            </div>
+                        </button>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== LIGHTBOX ===== -->
+        <div x-show="lightboxOpen"
+             x-cloak
+             x-transition.opacity
+             @click.self="lightboxOpen = false"
+             role="dialog"
+             aria-modal="true"
+             :aria-label="active.caption"
+             class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/90 p-4 md:p-8">
+
+            <button @click="lightboxOpen = false" aria-label="Tutup gambar"
+                    class="absolute top-4 right-4 md:top-6 md:right-6 text-white text-3xl md:text-4xl leading-none hover:text-amber-400 transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <button x-show="visible.length > 1" @click.stop="prev()" aria-label="Foto sebelumnya"
+                    class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/10 hover:bg-white/25 text-white text-xl transition-colors">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button x-show="visible.length > 1" @click.stop="next()" aria-label="Foto berikutnya"
+                    class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/10 hover:bg-white/25 text-white text-xl transition-colors">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <img :src="active.img" :alt="active.alt"
+                 class="max-w-full max-h-[78vh] object-contain rounded shadow-2xl">
+            <p class="mt-4 text-white text-center font-medium" x-text="active.caption"></p>
+            <p class="text-white/50 text-sm" x-text="(activeIndex + 1) + ' / ' + visible.length"></p>
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="./assets/js/layout.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

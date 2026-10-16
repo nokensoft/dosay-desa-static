@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="id">
-<head><meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Title -->
     <title>Kampung Dosay - Distrik Sentani Barat, Jayapura</title>
     <meta name="title" content="Kampung Dosay - Distrik Sentani Barat, Jayapura">
-    
+
     <!-- SEO Meta Description -->
     <meta name="description" content="Kampung Dosay, Distrik Sentani Barat, Kabupaten Jayapura, Provinsi Papua. Kaya akan budaya, alam, dan tradisi Suku Sentani.">
-    
+
     <!-- Keywords -->
     <meta name="keywords" content="Kampung Dosay, Sentani Barat, Kabupaten Jayapura, Papua, Danau Sentani, wisata kampung, budaya Sentani, adat Papua">
-    
+
     <!-- Author & Robots -->
     <meta name="author" content="Kampung Dosay">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Kampung Dosay - Distrik Sentani Barat, Jayapura">
@@ -24,1241 +25,234 @@
     <meta property="og:image" content="./images/logo-kabupaten-jayapura.png">
     <meta property="og:url" content="https://kampungdosay.id/">
     <meta property="og:site_name" content="Kampung Dosay">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Kampung Dosay - Distrik Sentani Barat, Jayapura">
     <meta name="twitter:description" content="Kampung adat di Distrik Sentani Barat, Kab. Jayapura, Papua">
     <meta name="twitter:image" content="./images/logo-kabupaten-jayapura.png">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./images/logo-kabupaten-jayapura.png">
     <link rel="apple-touch-icon" href="./images/logo-kabupaten-jayapura.png">
     <link rel="shortcut icon" href="./images/logo-kabupaten-jayapura.png">
-    
+
     <!-- Fonts & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    
+
     <!-- Additional SEO -->
     <meta name="theme-color" content="#1a3c34">
     <meta name="msapplication-TileColor" content="#1a3c34">
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
-        
-        :root {
-            --primary: #1a3c34;
-            --accent: #f59e0b;
-        }
-        
-        /* HERO SLIDESHOW */
-        .hero-slide {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            will-change: opacity, transform;
-        }
-
-        .hero-slide.is-active {
-            opacity: 1;
-            z-index: 1;
-        }
-
-        @keyframes kenburns-in {
-            from { transform: scale(1); }
-            to   { transform: scale(1.18); }
-        }
-
-        @keyframes kenburns-out {
-            from { transform: scale(1.18); }
-            to   { transform: scale(1); }
-        }
-
-        .hero-slide.zoom-in  { animation: kenburns-in 8s ease-out forwards; }
-        .hero-slide.zoom-out { animation: kenburns-out 8s ease-out forwards; }
-
-        @media (prefers-reduced-motion: reduce) {
-            .hero-slide { transition: opacity 0.4s ease; }
-            .hero-slide.zoom-in,
-            .hero-slide.zoom-out { animation: none; }
-        }
-
-        /* NAVIGATION LINKS */
-        .nav-link {
-            position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .nav-link:hover {
-            color: #f59e0b;
-            transform: translateY(-2px);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 0;
-            height: 2px;
-            background-color: #f59e0b;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.nav-active::after {
-            width: 100%;
-        }
-
-        .nav-link.nav-active {
-            color: #f59e0b;
-        }
-        
-        /* SECTION TITLES & CARDS */
-        .section-title {
-            font-family: 'Playfair Display', sans-serif;
-        }
-        
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-        }
-        
-        .logo-text {
-            font-family: 'Playfair Display', sans-serif;
-        }
-
-        .option-custom option {
-            background-color: #ffffff !important;
-            color: #064e3b !important;
-        }
-
-        /* UTILITIES */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        [x-cloak] {
-            display: none !important;
-        }
-
-        section[id] {
-            scroll-margin-top: 96px;
-        }
-
-        /* Batik/ornamen Papua pattern subtle */
-        .papua-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f59e0b' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        /* FLOATING ACTION BUTTONS (WhatsApp & Back to Top) */
-        .fab {
-            transition: opacity .3s ease, transform .3s ease, background-color .3s ease, box-shadow .3s ease;
-        }
-    </style>
 </head>
-<body class="bg-stone-50 text-stone-800 font-sans">
+<body data-page="index" class="bg-stone-50 text-stone-800">
 
-    <!-- ===== TOPBAR DISCLAIMER (situs dalam tahap pengembangan) ===== -->
-    <div class="bg-amber-500 text-emerald-950 print:hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2">
-            <p class="flex items-center justify-center gap-2 text-center text-xs sm:text-sm leading-snug">
-                <i class="fa-solid fa-triangle-exclamation shrink-0" aria-hidden="true"></i>
-                <span>
-                    <span data-bind-html="topbar.textHtml">Website ini masih dalam <strong>tahap pengembangan</strong> dan merupakan bentuk usulan atau draf yang dibuat serta diajukan oleh</span>
-                    <a href="https://nokensoft.com"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="inline-flex items-center gap-1 font-bold underline underline-offset-2 decoration-2 hover:text-emerald-800 transition-colors whitespace-nowrap"
-                       data-bind-attr="href:topbar.linkUrl">
-                        <span data-bind-text="topbar.linkName">Nokensoft.com</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[0.7em]" aria-hidden="true"></i>
-                    </a>
-                </span>
-            </p>
-        </div>
-    </div>
-    <!-- ===== /TOPBAR DISCLAIMER ===== -->
+    <!-- Topbar + navigasi (diisi oleh assets/js/layout.js) -->
+    <div id="site-header"></div>
 
-    <!-- ===== NAVIGATION ===== -->
-    <nav x-data="{ mobileMenu: false }"
-         @keydown.escape.window="mobileMenu = false"
-         class="bg-white border-b border-stone-200 sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex justify-between items-center px-6 py-4">
-                <!-- Logo -->
-                <a href="./" aria-label="Kampung Dosay - Beranda" class="flex items-center gap-3">
-                    <img src="./images/logo-kabupaten-jayapura.png" 
-                         alt="Logo Kampung Dosay" 
-                         class="h-10 md:h-12 w-auto"
-                         data-bind-attr="src:site.logo,alt:site.name"
-                         onerror="this.style.display='none'">
-                    <div>
-                        <span class="logo-text text-xl md:text-2xl font-bold tracking-tight text-emerald-900" data-bind-text="site.logoText.primary">KAMPUNG</span>
-                        <span class="logo-text text-xl md:text-2xl font-bold tracking-tight text-amber-600" data-bind-text="site.logoText.secondary">DOSAY</span>
-                    </div>
-                </a>
+    <main>
+        <!-- ===== HERO ===== -->
+        <section class="relative min-h-[calc(100vh-7rem)] flex items-center overflow-hidden py-24 md:py-0">
+            <div id="hero-slideshow" class="absolute inset-0 z-0 bg-emerald-950" aria-hidden="true"></div>
+            <div class="absolute inset-0 z-0 bg-black/50" aria-hidden="true"></div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-                    <a href="#beranda" onclick="smoothScrollTo('beranda')" class="nav-link text-emerald-900 hover:text-amber-600">Beranda</a>
-                    <a href="#tentang" onclick="smoothScrollTo('tentang')" class="nav-link text-emerald-900 hover:text-amber-600">Tentang</a>
-                    <a href="#transparansi" onclick="smoothScrollTo('transparansi')" class="nav-link text-emerald-900 hover:text-amber-600">Transparansi</a>
-                    <a href="#potensi" onclick="smoothScrollTo('potensi')" class="nav-link text-emerald-900 hover:text-amber-600">Potensi</a>
-                    <a href="#galeri" onclick="smoothScrollTo('galeri')" class="nav-link text-emerald-900 hover:text-amber-600">Galeri</a>
-                    <a href="#pemerintahan" onclick="smoothScrollTo('pemerintahan')" class="nav-link text-emerald-900 hover:text-amber-600">Pemerintahan</a>
-                    <a href="#kontak" onclick="smoothScrollTo('kontak')" class="nav-link text-emerald-900 hover:text-amber-600">Kontak</a>
-                </div>
-
-                <!-- Mobile Hamburger -->
-                <button @click="mobileMenu = !mobileMenu"
-                        :aria-expanded="mobileMenu"
-                        aria-controls="mobile-menu"
-                        aria-label="Buka menu navigasi"
-                        class="md:hidden text-2xl text-emerald-900 focus:outline-none focus:text-amber-600">
-                    <i class="fa-solid fa-bars" x-show="!mobileMenu"></i>
-                    <i class="fa-solid fa-xmark" x-show="mobileMenu" x-cloak></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu (scrollable agar semua menu tetap terjangkau di layar kecil) -->
-        <div id="mobile-menu"
-             x-show="mobileMenu"
-             x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 -translate-y-2"
-             x-transition:enter-end="opacity-100 translate-y-0"
-             x-transition:leave="transition ease-in duration-150"
-             x-transition:leave-start="opacity-100 translate-y-0"
-             x-transition:leave-end="opacity-0 -translate-y-2"
-             x-cloak
-             class="md:hidden bg-white border-t border-stone-200 shadow-lg">
-            <div class="flex flex-col px-6 py-4 text-lg max-h-[calc(100vh-4.5rem)] overflow-y-auto">
-                <a href="#beranda" @click.prevent="smoothScrollTo('beranda'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Beranda</a>
-                <a href="#tentang" @click.prevent="smoothScrollTo('tentang'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Tentang</a>
-                <a href="#transparansi" @click.prevent="smoothScrollTo('transparansi'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Transparansi</a>
-                <a href="#potensi" @click.prevent="smoothScrollTo('potensi'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Potensi</a>
-                <a href="#galeri" @click.prevent="smoothScrollTo('galeri'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Galeri</a>
-                <a href="#pemerintahan" @click.prevent="smoothScrollTo('pemerintahan'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600 border-b border-stone-100">Pemerintahan</a>
-                <a href="#kontak" @click.prevent="smoothScrollTo('kontak'); mobileMenu = false" class="nav-link block py-3 text-emerald-900 hover:text-amber-600">Kontak</a>
-            </div>
-        </div>
-    </nav>
-    <!-- ===== /NAVIGATION ===== -->
-
-    <!-- ===== HERO / BERANDA ===== -->
-    <section id="beranda" class="relative min-h-screen flex items-center overflow-hidden py-24 md:py-0">
-        <div id="hero-slideshow" class="absolute inset-0 z-0 bg-emerald-950" aria-hidden="true"></div>
-        <div class="absolute inset-0 z-0 bg-black/50" aria-hidden="true"></div>
-
-        <div class="relative max-w-4xl mx-auto px-6 text-center text-white z-10">
-            <div class="flex justify-center mb-8">
-                <a href="./" aria-label="Kampung Dosay - Beranda">
-                    <img src="./images/logo-kabupaten-jayapura.png" 
-                         alt="Kampung Dosay" 
+            <div class="relative max-w-4xl mx-auto px-6 text-center text-white z-10">
+                <div class="flex justify-center mb-8">
+                    <img src="./images/logo-kabupaten-jayapura.png"
+                         alt="Kampung Dosay"
                          class="h-32 w-auto drop-shadow-2xl rounded-full"
                          data-bind-attr="src:site.logo,alt:site.name"
                          onerror="this.style.display='none'">
-                </a>
-            </div>
-            <a href="./" class="inline-block">
+                </div>
                 <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter logo-text mb-4" data-bind-text="hero.title">
                     KAMPUNG DOSAY
                 </h1>
+                <p class="text-xl sm:text-2xl md:text-3xl font-light tracking-wide mb-8" data-bind-text="hero.subtitle">
+                    Distrik Sentani Barat &bull; Kabupaten Jayapura &bull; Papua
+                </p>
+
+                <div class="max-w-xl mx-auto">
+                    <p class="text-lg mb-10 text-white/90 leading-relaxed" data-bind-text="hero.description">
+                        Kampung yang terletak di Distrik Sentani Barat, Kab. Jayapura, Papua, memiliki potensi sumber daya alam dan menawarkan keindahan alam Papua yang tak ternilai.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tentang.html"
+                       class="uppercase inline-flex items-center justify-center bg-amber-500 hover:bg-amber-600 text-white font-semibold px-10 py-5 transition-all text-lg shadow-md">
+                        <i class="fa-solid fa-circle-info mr-3"></i>
+                        Profil Kampung
+                    </a>
+                    <a href="potensi.html"
+                       class="uppercase inline-flex items-center justify-center border-2 border-white hover:bg-white hover:text-emerald-900 text-white font-semibold px-10 py-5 transition-all text-lg">
+                        <i class="fa-solid fa-star mr-3"></i>
+                        Potensi &amp; Daya Tarik
+                    </a>
+                </div>
+            </div>
+
+            <a href="#sekilas" aria-label="Gulir ke bawah" class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-10">
+                <i class="fa-solid fa-chevron-down text-4xl text-white/70"></i>
             </a>
-            <p class="text-xl sm:text-2xl md:text-3xl font-light tracking-wide mb-8" data-bind-text="hero.subtitle">
-                Distrik Sentani Barat &bull; Kabupaten Jayapura &bull; Papua
-            </p>
-            
-            <div class="max-w-xl mx-auto">
-                <p class="text-lg mb-10 text-white/90 leading-relaxed" data-bind-text="hero.description">
-                    Kampung yang terletak di Distrik Sentani Barat, Kab. Jayapura, Papua, memiliki potensi sumber daya alam dan menawarkan keindahan alam Papua yang tak ternilai.
-                </p>
+        </section>
+        <!-- ===== /HERO ===== -->
+
+        <!-- ===== SEKILAS KAMPUNG ===== -->
+        <section id="sekilas" class="py-16 md:py-24 bg-white papua-pattern">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900">Selamat Datang di Kampung Dosay</h2>
+                    <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <p class="text-stone-600 leading-relaxed mb-4 text-lg">
+                            Kampung Dosay terletak di Distrik Sentani Barat, Kabupaten Jayapura, Provinsi Papua — berada di kawasan Lembah Moi, tepat di bawah kaki Pegunungan Cycloop.
+                        </p>
+                        <p class="text-stone-600 leading-relaxed mb-8">
+                            Selain keindahan alamnya, kampung ini dikenal dengan keharmonisan sosial: masyarakat asli Suku Moi hidup berdampingan dengan suku-suku lain dari Tanah Papua serta suku Nusantara dari berbagai daerah di Indonesia.
+                        </p>
+                        <a href="tentang.html" class="inline-flex items-center gap-2 font-semibold text-emerald-900 hover:text-amber-600 transition-colors group">
+                            Selengkapnya tentang Kampung Dosay
+                            <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-emerald-900 text-white p-6 text-center flex flex-col justify-center rounded-lg">
+                            <div class="text-4xl font-bold text-amber-400 mb-2"><i class="fa-solid fa-mountain-sun"></i></div>
+                            <div class="text-sm text-emerald-100 font-medium">Lembah Moi</div>
+                        </div>
+                        <div class="bg-amber-500 text-white p-6 text-center flex flex-col justify-center rounded-lg">
+                            <div class="text-4xl font-bold mb-2"><i class="fa-solid fa-compass"></i></div>
+                            <div class="text-sm text-white font-medium">Pegunungan Cycloop</div>
+                        </div>
+                        <div class="bg-emerald-700 text-white p-6 text-center flex flex-col justify-center rounded-lg">
+                            <div class="text-4xl font-bold mb-2"><i class="fa-solid fa-users-rays"></i></div>
+                            <div class="text-sm text-emerald-100 font-medium">Multi-Etnis</div>
+                        </div>
+                        <div class="bg-stone-800 text-white p-6 text-center flex flex-col justify-center rounded-lg">
+                            <div class="text-4xl font-bold text-amber-400 mb-2"><i class="fa-solid fa-handshake-angle"></i></div>
+                            <div class="text-sm text-stone-200 font-medium">Harmonis &amp; Damai</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#tentang" 
-                   onclick="smoothScrollTo('tentang')"
-                   class="uppercase inline-flex items-center justify-center bg-amber-500 hover:bg-amber-600 text-white font-semibold px-10 py-5 rounded-none transition-all text-lg shadow-md">
-                    <i class="fa-solid fa-circle-info mr-3"></i>
-                    Profil Kampung
+        </section>
+        <!-- ===== /SEKILAS KAMPUNG ===== -->
+
+        <!-- ===== JELAJAHI ===== -->
+        <section class="py-16 md:py-24 bg-stone-100">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900">Jelajahi Kampung</h2>
+                    <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <a href="potensi.html" class="group relative aspect-[4/5] overflow-hidden rounded-lg shadow-md">
+                        <img src="./images/gallery/dosay-anggrek.png" alt="Potensi Kampung Dosay" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/30 to-transparent"></div>
+                        <div class="absolute bottom-0 inset-x-0 p-6 text-white">
+                            <i class="fa-solid fa-seedling text-amber-400 text-2xl mb-3"></i>
+                            <h3 class="text-xl font-bold flex items-center justify-between">Potensi <i class="fa-solid fa-arrow-right text-base transition-transform group-hover:translate-x-1"></i></h3>
+                        </div>
+                    </a>
+                    <a href="fasilitas.html" class="group relative aspect-[4/5] overflow-hidden rounded-lg shadow-md">
+                        <img src="./images/sd-negeri-dosay.png" alt="Fasilitas Umum Kampung Dosay" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/30 to-transparent"></div>
+                        <div class="absolute bottom-0 inset-x-0 p-6 text-white">
+                            <i class="fa-solid fa-building text-amber-400 text-2xl mb-3"></i>
+                            <h3 class="text-xl font-bold flex items-center justify-between">Fasilitas Umum <i class="fa-solid fa-arrow-right text-base transition-transform group-hover:translate-x-1"></i></h3>
+                        </div>
+                    </a>
+                    <a href="transparansi.html" class="group relative aspect-[4/5] overflow-hidden rounded-lg shadow-md">
+                        <img src="./images/lapangan-sepak-bola.png" alt="Transparansi Dana Desa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/30 to-transparent"></div>
+                        <div class="absolute bottom-0 inset-x-0 p-6 text-white">
+                            <i class="fa-solid fa-magnifying-glass-chart text-amber-400 text-2xl mb-3"></i>
+                            <h3 class="text-xl font-bold flex items-center justify-between">Transparansi <i class="fa-solid fa-arrow-right text-base transition-transform group-hover:translate-x-1"></i></h3>
+                        </div>
+                    </a>
+                    <a href="pemerintahan.html" class="group relative aspect-[4/5] overflow-hidden rounded-lg shadow-md">
+                        <img src="./images/gereja-gki-efata-dosay.png" alt="Pemerintahan Kampung Dosay" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/30 to-transparent"></div>
+                        <div class="absolute bottom-0 inset-x-0 p-6 text-white">
+                            <i class="fa-solid fa-landmark text-amber-400 text-2xl mb-3"></i>
+                            <h3 class="text-xl font-bold flex items-center justify-between">Pemerintahan <i class="fa-solid fa-arrow-right text-base transition-transform group-hover:translate-x-1"></i></h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- ===== /JELAJAHI ===== -->
+
+        <!-- ===== GALERI SINGKAT ===== -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900">Galeri</h2>
+                    <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <a href="galeri.html" class="gallery-item group relative aspect-square overflow-hidden rounded-lg shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400/60">
+                        <img src="./images/gallery/dosay-kali-dansari.png" alt="Wisata Kali Dansari" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="gallery-overlay absolute inset-0 flex items-center justify-center p-4">
+                            <span class="gallery-caption text-white text-center font-semibold text-base md:text-lg drop-shadow">Wisata Kali Dansari</span>
+                        </div>
+                    </a>
+                    <a href="galeri.html" class="gallery-item group relative aspect-square overflow-hidden rounded-lg shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400/60">
+                        <img src="./images/gallery/dosay-traditional-dance.png" alt="Tarian Tradisional" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="gallery-overlay absolute inset-0 flex items-center justify-center p-4">
+                            <span class="gallery-caption text-white text-center font-semibold text-base md:text-lg drop-shadow">Tarian Tradisional</span>
+                        </div>
+                    </a>
+                    <a href="galeri.html" class="gallery-item group relative aspect-square overflow-hidden rounded-lg shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400/60">
+                        <img src="./images/gallery/dosay-anggrek.png" alt="Taman & Galeri Anggrek" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="gallery-overlay absolute inset-0 flex items-center justify-center p-4">
+                            <span class="gallery-caption text-white text-center font-semibold text-base md:text-lg drop-shadow">Taman &amp; Galeri Anggrek</span>
+                        </div>
+                    </a>
+                    <a href="galeri.html" class="gallery-item group relative aspect-square overflow-hidden rounded-lg shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400/60">
+                        <img src="./images/gallery/dosay-berkemah-dansari.png" alt="Area Berkemah Dansari" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="gallery-overlay absolute inset-0 flex items-center justify-center p-4">
+                            <span class="gallery-caption text-white text-center font-semibold text-base md:text-lg drop-shadow">Area Berkemah Dansari</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="text-center mt-10">
+                    <a href="galeri.html" class="uppercase inline-flex items-center justify-center gap-2 border-2 border-emerald-900 text-emerald-900 hover:bg-emerald-900 hover:text-white font-semibold px-8 py-4 transition-colors">
+                        Lihat Semua Foto <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- ===== /GALERI SINGKAT ===== -->
+
+        <!-- ===== CTA KONTAK ===== -->
+        <section class="bg-emerald-900 text-white">
+            <div class="max-w-7xl mx-auto px-6 py-14 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                <h2 class="section-title text-3xl md:text-4xl font-bold">Ada pertanyaan seputar Kampung Dosay?</h2>
+                <a href="kontak.html" class="shrink-0 uppercase inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-emerald-950 font-semibold px-8 py-4 transition-colors">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> Hubungi Kami
                 </a>
-                <a href="#potensi" 
-                   onclick="smoothScrollTo('potensi')"
-                   class="uppercase inline-flex items-center justify-center border-2 border-white hover:bg-white hover:text-emerald-900 text-white font-semibold px-10 py-5 rounded-none transition-all text-lg">
-                    <i class="fa-solid fa-star mr-3"></i>
-                    Potensi & Daya Tarik
-                </a>
             </div>
-        </div>
-
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce z-10">
-            <i class="fa-solid fa-chevron-down text-4xl text-white/70"></i>
-        </div>
-    </section>
-    <!-- ===== /HERO ===== -->
-
-    <!-- ===== TENTANG KAMPUNG ===== -->
-    <section id="tentang" class="py-16 md:py-24 bg-white papua-pattern">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Tentang Kampung Dosay</h2>
-                <p class="text-xl text-emerald-700">Mengenal sejarah, budaya, dan kehidupan masyarakat Kampung Dosay</p>
-                <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
-            </div>
-
-            
-            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-                <!-- Teks Profil -->
-                <div>
-                    <h3 class="section-title text-2xl font-bold text-emerald-900 mb-4">Selamat Datang di Kampung Dosay</h3>
-                    <p class="text-stone-600 leading-relaxed mb-4">
-                        Kampung Dosay merupakan salah satu kampung yang terletak di Distrik Sentani Barat, Kabupaten Jayapura, Provinsi Papua. Berada di kawasan Lembah Moi—sebuah lembah yang namanya diambil dari Suku dan Bahasa asli setempat, yaitu Suku Moi—kampung ini berbatasan langsung dengan Kampung Sabron Yaru dan Kampung Sabron Sari di sebelah timur, serta Kampung Waibron di sebelah barat.
-                    </p>
-                    <p class="text-stone-600 leading-relaxed mb-6">
-                        Berlokasi tepat di bawah kaki Pegunungan Cycloop yang membentang di sebelah utara, Kampung Dosay tidak hanya menawarkan keindahan alam yang memukau, tetapi juga keharmonisan sosial yang indah. Kehidupan di kampung ini menjadi cerminan keberagaman yang damai, di mana masyarakat asli Suku Moi hidup berdampingan secara harmonis dengan suku-suku lain dari Tanah Papua serta suku Nusantara yang berasal dari berbagai daerah di Indonesia.
-                    </p>
-                    <div class="flex flex-col gap-3">
-                        <div class="flex items-center gap-3 text-sm">
-                            <i class="fa-solid fa-location-dot text-amber-500 w-5"></i>
-                            <span class="text-stone-700">Distrik Sentani Barat, Kabupaten Jayapura, Provinsi Papua</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-sm">
-                            <i class="fa-solid fa-mountain text-amber-500 w-5"></i>
-                            <span class="text-stone-700">Kawasan Lembah Moi & Kaki Pegunungan Cycloop</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-sm">
-                            <i class="fa-solid fa-people-group text-amber-500 w-5"></i>
-                            <span class="text-stone-700">Suku Moi & Keberagaman Suku Nusantara</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Statistik / Highlight Kampung -->
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="bg-emerald-900 text-white p-6 text-center flex flex-col justify-center rounded-lg">
-                        <div class="text-4xl font-bold text-amber-400 mb-1"><i class="fa-solid fa-mountain-sun"></i></div>
-                        <div class="text-sm text-emerald-200 font-medium">Lembah Moi</div>
-                        <div class="text-xs text-emerald-300 mt-1">Identitas Suku & Bahasa Asli</div>
-                    </div>
-                    <div class="bg-amber-500 text-white p-6 text-center flex flex-col justify-center rounded-lg">
-                        <div class="text-4xl font-bold mb-1"><i class="fa-solid fa-compass"></i></div>
-                        <div class="text-sm text-amber-100 font-medium">Pegunungan Cycloop</div>
-                        <div class="text-xs text-amber-500_darker mt-1">Benteng Alam di Sebelah Utara</div>
-                    </div>
-                    <div class="bg-emerald-700 text-white p-6 text-center flex flex-col justify-center rounded-lg">
-                        <div class="text-4xl font-bold mb-1"><i class="fa-solid fa-users-rays"></i></div>
-                        <div class="text-sm text-emerald-100 font-medium">Multi-Etnis</div>
-                        <div class="text-xs text-emerald-200 mt-1">Suku Papua & Nusantara</div>
-                    </div>
-                    <div class="bg-stone-800 text-white p-6 text-center flex flex-col justify-center rounded-lg">
-                        <div class="text-4xl font-bold text-amber-400 mb-1"><i class="fa-solid fa-handshake-angle"></i></div>
-                        <div class="text-sm text-stone-200 font-medium">Harmonis & Damai</div>
-                        <div class="text-xs text-stone-400 mt-1">Berdampingan dengan Alam</div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <!-- ===== /TENTANG KAMPUNG ===== -->
-
-    <!-- ===== TRANSPARANSI — PROGRAM & KEGIATAN DANA DESA ===== -->
-    <section id="transparansi" class="py-16 md:py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6">
-
-            <!-- Header Section -->
-            <div class="text-center mb-16">
-                <span class="inline-flex items-center gap-2 text-blue-700 font-semibold tracking-widest text-xs uppercase mb-3 bg-blue-50 px-4 py-1.5 rounded-none">
-                    <i class="fa-solid fa-magnifying-glass-chart"></i> Transparansi Publik
-                </span>
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-slate-900 mb-3">
-                    Publikasi Program &amp; Kegiatan Dana Desa
-                </h2>
-                <p class="text-xl text-slate-600">Kampung Dosay — Tahun Anggaran 2026</p>
-                <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
-            </div>
-
-
-            <!-- Daftar Program (Grid Layout) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Item 1: Kemiskinan Ekstrem -->
-                <div class="bg-white p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-12 h-12 bg-red-50 text-red-600 flex items-center justify-center text-xl mb-5 group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-hand-holding-dollar"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Penanganan Kemiskinan Ekstrem</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Penyaluran BLT Desa maksimal Rp300.000/bulan bagi keluarga rentan, lansia, dan disabilitas melalui keputusan Musdes.</p>
-                    </div>
-                </div>
-
-                <!-- Item 2: Berketahanan Iklim -->
-                <div class="bg-white p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-12 h-12 bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-5 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-cloud-sun-rain"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Desa Berketahanan Iklim</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Adaptasi perubahan iklim melalui pengelolaan sampah, pertanian rendah emisi, dan mitigasi bencana lokal.</p>
-                    </div>
-                </div>
-
-                <!-- Item 3: Layanan Kesehatan -->
-                <div class="bg-white p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-12 h-12 bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-5 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-heart-pulse"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Layanan Dasar Kesehatan</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Revitalisasi Posyandu, pencegahan stunting melalui pemberian makanan tambahan, dan penyediaan air bersih.</p>
-                    </div>
-                </div>
-
-                <!-- Item 4: Ketahanan Pangan -->
-                <div class="bg-white p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-12 h-12 bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-5 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-wheat-awn"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Ketahanan Pangan & Energi</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Penguatan lumbung pangan warga, pemanfaatan lahan kas desa, serta penguatan modal usaha BUMDes.</p>
-                    </div>
-                </div>
-
-                <!-- Item 5: Koperasi Desa -->
-                <div class="bg-white p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-12 h-12 bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-5 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-store"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Koperasi Merah Putih</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Dukungan infrastruktur, pergudangan, dan gerai Koperasi Desa Merah Putih untuk ekonomi arus bawah.</p>
-                    </div>
-                </div>
-
-                <!-- Item 6: Padat Karya Tunai -->
-                <div class="bg-white p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-12 h-12 bg-orange-50 text-orange-600 flex items-center justify-center text-xl mb-5 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-person-digging"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Padat Karya Tunai Desa</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Pembangunan fisik secara swakelola dengan alokasi minimal 50% anggaran untuk upah pekerja lokal.</p>
-                    </div>
-                </div>
-
-                <!-- Item 7: Infrastruktur Digital -->
-                <div class="bg-white p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-12 h-12 bg-cyan-50 text-cyan-600 flex items-center justify-center text-xl mb-5 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Infrastruktur Digital Desa</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Penyediaan internet desa, website resmi (.id), dan perangkat digital untuk pemutakhiran data SDGs.</p>
-                    </div>
-                </div>
-
-                <!-- Item 8: Sektor Prioritas Lain -->
-                <div class="bg-white p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-12 h-12 bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-5 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
-                            <i class="fa-solid fa-users-gear"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Program Prioritas Spesifik</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Pendanaan program mendesak skala lokal yang disepakati secara akuntabel melalui Musyawarah Desa.</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-    <!-- ===== /TRANSPARANSI ===== -->
-
-    <!-- ===== POTENSI KAMPUNG ===== -->
-    <section id="potensi" class="py-16 md:py-24 bg-stone-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Potensi Kampung Dosay</h2>
-                <p class="text-xl text-emerald-700">Kekayaan alam, agrobisnis, dan potensi ekonomi lokal yang dimiliki Kampung Dosay</p>
-                <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-
-                <!-- Potensi 1: Wisata Alam (UNGGULAN) -->
-                <div class="card-hover bg-white border border-stone-200 p-8 shadow-md group relative md:scale-105 z-10 rounded-lg">
-                    <div class="absolute -top-4 right-6 bg-amber-500 text-white text-xs font-bold px-6 py-1.5 rounded-none">UNGGULAN</div>
-                    <div class="text-center">
-                        <div class="text-6xl mb-6 text-amber-500">
-                            <i class="fa-solid fa-compass-drafting"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold mb-2">Wisata Alam Eksotis</h3>
-                        <div class="w-12 h-1 bg-amber-400 mx-auto mb-4"></div>
-                    </div>
-                    <ul class="space-y-4 text-sm mb-8 text-stone-600">
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Destinasi wisata alam Kali Dansari yang jernih</li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Pemandangan megah Pegunungan Cycloop</li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Spot foto alam bertemakan Lembah Moi</li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Suasana hutan pegunungan yang sejuk dan asri</li>
-                    </ul>
-                </div>
-
-                <!-- Potensi 2: Agrobisnis & Florikultura -->
-                <div class="card-hover bg-white border border-stone-200 p-8 shadow-md group rounded-lg">
-                    <div class="text-center">
-                        <div class="text-6xl mb-6 text-emerald-600">
-                            <i class="fa-solid fa-seedling"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold mb-2">Florikultura & Pembibitan</h3>
-                        <div class="w-12 h-1 bg-emerald-400 mx-auto mb-4"></div>
-                    </div>
-                    <ul class="space-y-4 text-sm mb-8 text-stone-600">
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Taman dan galeri bunga anggrek khas</li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Budidaya petani bunga lokal</li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Penyediaan bibit tanaman berkualitas</li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Wisata edukasi tanaman hias</li>
-                    </ul>
-                </div>
-
-                <!-- Potensi 3: Peternakan, Perkebunan & Industri -->
-                <div class="card-hover bg-white border border-stone-200 p-8 shadow-md group rounded-lg">
-                    <div class="text-center">
-                        <div class="text-6xl mb-6 text-emerald-700">
-                            <i class="fa-solid fa-wheat-awn"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold mb-2">Produksi & Ekonomi Lokal</h3>
-                        <div class="w-12 h-1 bg-stone-400 mx-auto mb-4"></div>
-                    </div>
-                    <ul class="space-y-4 text-sm mb-8 text-stone-600">
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Peternakan mandiri ayam potong, sapi, dan babi</li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Komoditas perkebunan kelapa dan buah pinang</li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Hasil panen buah rambutan musiman warga</li>
-                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-600 mt-1"></i> Sektor industri melalui pabrik batu pecah</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <!-- ===== /POTENSI KAMPUNG ===== -->
-
-
-    <!-- ===== FASILITAS UMUM ===== -->
-    <section id="fasilitas" 
-         x-data="{ 
-            fasilitasItems: [
-                {
-                    nama: 'Kantor Kampung Dosay',
-                    kategori: 'Pemerintahan',
-                    deskripsi: 'Pusat pelayanan administrasi dan tata kelola pemerintahan Kampung Dosay.',
-                    gambar: 'https://easysyntax.github.io/placeholders/Square%20Post%201080%20x%201080.svg',
-                    ikon: 'fa-solid fa-building-flag'
-                },
-                {
-                    nama: 'Puskesmas Dosay',
-                    kategori: 'Kesehatan',
-                    deskripsi: 'Fasilitas kesehatan utama untuk pelayanan medis masyarakat Sentani Barat.',
-                    gambar: './images/puskesmas-dosay.png',
-                    ikon: 'fa-solid fa-house-medical'
-                },
-                {
-                    nama: 'Poliklinik Kesehatan',
-                    kategori: 'Kesehatan',
-                    deskripsi: 'Layanan kesehatan tingkat pertama untuk penanganan medis warga sekitar.',
-                    gambar: 'https://easysyntax.github.io/placeholders/Square%20Post%201080%20x%201080.svg',
-                    ikon: 'fa-solid fa-user-doctor'
-                },
-                {
-                    nama: 'POLSEK Sentani Barat',
-                    kategori: 'Keamanan',
-                    deskripsi: 'Pos komando kepolisian sektor untuk menjaga keamanan dan ketertiban wilayah.',
-                    gambar: 'https://easysyntax.github.io/placeholders/Square%20Post%201080%20x%201080.svg',
-                    ikon: 'fa-solid fa-shield-halved'
-                },
-                {
-                    nama: 'SD Negeri Dosay',
-                    kategori: 'Pendidikan',
-                    deskripsi: 'Sarana pendidikan dasar formal untuk mencerdaskan generasi muda kampung.',
-                    gambar: './images/sd-negeri-dosay.png',
-                    ikon: 'fa-solid fa-school'
-                },
-                {
-                    nama: 'SMP Negeri 3 Sentani Barat',
-                    kategori: 'Pendidikan',
-                    deskripsi: 'Fasilitas pendidikan tingkat menengah pertama di kawasan Kampung Dosay.',
-                    gambar: 'https://easysyntax.github.io/placeholders/Square%20Post%201080%20x%201080.svg',
-                    ikon: 'fa-solid fa-graduation-cap'
-                },
-                {
-                    nama: 'Gereja Jemaat Lokal',
-                    kategori: 'Peribadatan',
-                    deskripsi: 'Rumah ibadah dan pusat kegiatan rohani bagi umat Kristiani setempat.',
-                    gambar: './images/gereja-gki-efata-dosay.png',
-                    ikon: 'fa-solid fa-church'
-                },
-                {
-                    nama: 'Masjid Kampung',
-                    kategori: 'Peribadatan',
-                    deskripsi: 'Sarana ibadah dan pembinaan keagamaan bagi umat Muslim di Dosay.',
-                    gambar: 'https://easysyntax.github.io/placeholders/Square%20Post%201080%20x%201080.svg',
-                    ikon: 'fa-solid fa-mosque'
-                },
-                {
-                    nama: 'Lapangan Sepak Bola',
-                    kategori: 'Olahraga',
-                    deskripsi: 'Wadah aktivitas olahraga, turnamen lokal, dan ruang publik komunitas.',
-                    gambar: './images/lapangan-sepak-bola.png',
-                    ikon: 'fa-solid fa-baseball-bat-ball'
-                },
-                {
-                    nama: 'Wisata Kali Dansari',
-                    kategori: 'Destinasi Wisata',
-                    deskripsi: 'Ekowisata pemandian alam dengan air pegunungan jernih dan asri.',
-                    gambar: './images/dosay-kali-dansari.png',
-                    ikon: 'fa-solid fa-compass-drafting'
-                },
-                {
-                    nama: 'Spot Foto Sunset & Sunrise',
-                    kategori: 'Destinasi Wisata',
-                    deskripsi: 'Area pandang estetis berlatarkan benteng alam Pegunungan Cycloop.',
-                    gambar: 'https://easysyntax.github.io/placeholders/Square%20Post%201080%20x%201080.svg',
-                    ikon: 'fa-solid fa-camera-retro'
-                }
-            ]
-         }"
-         class="py-16 md:py-24 bg-stone-100">
-         
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Fasilitas Umum</h2>
-                <p class="text-xl text-emerald-700 max-w-2xl mx-auto">Infrastruktur pendukung pelayanan masyarakat, pendidikan, peribadatan, dan pariwisata di Kampung Dosay</p>
-                <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <template x-for="(fasilitas, index) in fasilitasItems" :key="index">
-                    <div class="group bg-white border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 rounded-lg flex flex-col justify-between">
-                        
-                        <div>
-                            <div class="relative aspect-video w-full overflow-hidden bg-stone-200">
-                                <img :src="fasilitas.gambar" 
-                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                                    :alt="fasilitas.nama">
-                                <span class="absolute top-3 left-3 bg-emerald-900/90 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full tracking-wide uppercase shadow-sm"
-                                    x-text="fasilitas.kategori"></span>
-                            </div>
-
-                            <div class="p-6">
-                                <div class="flex items-start gap-3 mb-2">
-                                    <div class="text-xl text-amber-500 mt-1 flex-shrink-0">
-                                        <i :class="fasilitas.ikon"></i>
-                                    </div>
-                                    <h3 class="text-xl font-bold text-emerald-950 leading-tight" x-text="fasilitas.nama"></h3>
-                                </div>
-                                <p class="text-stone-600 text-sm leading-relaxed" x-text="fasilitas.deskripsi"></p>
-                            </div>
-                        </div>
-
-                        <div class="px-6 pb-6 mt-2">
-                            <div class="w-full h-[2px] bg-stone-100 group-hover:bg-amber-400 transition-colors duration-300"></div>
-                        </div>
-
-                    </div>
-                </template>
-            </div>
-        </div>
-    </section>
-    <!-- ===== /FASILITAS UMUM ===== -->  
-
-    <!-- ===== GALERI ===== -->
-    <section id="galeri"
-            x-data="{ 
-                lightboxOpen: false, 
-                activeImg: '', 
-                activeAlt: '',
-                items: [
-                    {
-                        img: './images/gallery/dosay-anggrek.png',
-                        alt: 'Budidaya Bunga Anggrek Kampung Dosay',
-                        caption: 'Taman & Galeri Anggrek'
-                    },
-                    {
-                        img: './images/gallery/dosay-berkemah-dansari.png',
-                        alt: 'Aktivitas Berkemah di Kali Dansari',
-                        caption: 'Area Berkemah Dansari'
-                    },
-                    {
-                        img: './images/gallery/dosay-kali-dansari.png',
-                        alt: 'Keindahan Alami Kali Dansari',
-                        caption: 'Wisata Kali Dansari'
-                    }
-                ]
-            }"
-            x-effect="document.body.style.overflow = lightboxOpen ? 'hidden' : ''"
-            class="py-16 md:py-24 bg-stone-100">
-            
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Galeri Kampung Dosay</h2>
-                <p class="text-xl text-emerald-700 max-w-md mx-auto">Potret keindahan alam, budaya, dan kehidupan masyarakat Kampung Dosay</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <!-- Loop Item Galeri menggunakan Alpine.js -->
-                <template x-for="(item, index) in items" :key="index">
-                    <button type="button"
-                            @click="lightboxOpen = true; activeImg = item.img; activeAlt = item.alt"
-                            class="group relative aspect-square overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-400/60 rounded-lg shadow-md">
-                        
-                        <img :src="item.img" 
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                            :alt="item.alt">
-                        
-                        <!-- Overlay Masker (Hover Effect) -->
-                        <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
-                            <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
-                        </div>
-                        
-                        <!-- Floating Caption (Bawah Rata Kiri) -->
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-left pointer-events-none">
-                            <span class="text-xs md:text-sm font-medium text-white tracking-wide drop-shadow-sm" x-text="item.caption"></span>
-                        </div>
-                    </button>
-                </template>
-            </div>
-        </div>
-
-        <!-- LIGHTBOX -->
-        <div x-show="lightboxOpen"
-            x-cloak
-            x-transition.opacity
-            @keydown.escape.window="lightboxOpen = false"
-            @click.self="lightboxOpen = false"
-            role="dialog"
-            aria-modal="true"
-            class="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 md:p-8">
-            <button @click="lightboxOpen = false"
-                    aria-label="Tutup gambar"
-                    class="absolute top-4 right-4 md:top-6 md:right-6 text-white text-3xl md:text-4xl leading-none hover:text-amber-400 transition-colors">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <img :src="activeImg" :alt="activeAlt"
-                @click.stop
-                x-transition
-                class="max-w-full max-h-[85vh] object-contain rounded shadow-2xl">
-        </div>
-    </section>
-    <!-- ===== /GALERI ===== -->
-
-    <!-- ===== PEMERINTAHAN KAMPUNG ===== -->
-    <section id="pemerintahan" class="py-16 md:py-24 bg-emerald-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold text-emerald-900 mb-3">Pemerintahan Kampung</h2>
-                <p class="text-xl text-emerald-700 max-w-2xl mx-auto">Struktur pemerintahan dan layanan publik Kampung Dosay</p>
-                <div class="w-24 h-1 bg-amber-500 mx-auto mt-6"></div>
-            </div>
-
-            <!-- Struktur Pemerintahan -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-                <!-- Kepala Kampung -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow col-span-full md:col-span-1">
-                    <div class="shrink-0 w-14 h-14 flex items-center justify-center bg-amber-500 text-white rounded-full text-2xl">
-                        <i class="fa-solid fa-user-tie"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs uppercase tracking-widest text-amber-600 font-semibold mb-1">Kepala Kampung</p>
-                        <h3 class="font-bold text-emerald-900 text-lg mb-1">— (Nama Kepala Kampung)</h3>
-                        <p class="text-sm text-stone-500">Pimpinan tertinggi Kampung Dosay</p>
-                    </div>
-                </div>
-
-                <!-- Sekretaris -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-14 h-14 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-2xl">
-                        <i class="fa-solid fa-file-pen"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs uppercase tracking-widest text-emerald-600 font-semibold mb-1">Sekretaris Kampung</p>
-                        <h3 class="font-bold text-emerald-900 mb-1">— (Nama Sekretaris)</h3>
-                        <p class="text-sm text-stone-500">Administrasi & tata kelola kampung</p>
-                    </div>
-                </div>
-
-                <!-- Bendahara -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-14 h-14 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-2xl">
-                        <i class="fa-solid fa-coins"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs uppercase tracking-widest text-emerald-600 font-semibold mb-1">Bendahara Kampung</p>
-                        <h3 class="font-bold text-emerald-900 mb-1">— (Nama Bendahara)</h3>
-                        <p class="text-sm text-stone-500">Pengelolaan keuangan kampung</p>
-                    </div>
-                </div>
-
-                <!-- Kepala Urusan Umum -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-14 h-14 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-2xl">
-                        <i class="fa-solid fa-briefcase"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs uppercase tracking-widest text-emerald-600 font-semibold mb-1">Kaur Umum</p>
-                        <h3 class="font-bold text-emerald-900 mb-1">— (Nama Kaur Umum)</h3>
-                        <p class="text-sm text-stone-500">Urusan umum dan tata usaha</p>
-                    </div>
-                </div>
-
-                <!-- Kepala Seksi Pemerintahan -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-14 h-14 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-2xl">
-                        <i class="fa-solid fa-landmark"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs uppercase tracking-widest text-emerald-600 font-semibold mb-1">Kasi Pemerintahan</p>
-                        <h3 class="font-bold text-emerald-900 mb-1">— (Nama Kasi Pem.)</h3>
-                        <p class="text-sm text-stone-500">Layanan pemerintahan & kependudukan</p>
-                    </div>
-                </div>
-
-                <!-- Ketua BPK / Badan Permusyawaratan Kampung -->
-                <div class="bg-white border border-emerald-100 p-6 flex items-start gap-4 shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="shrink-0 w-14 h-14 flex items-center justify-center bg-emerald-900 text-amber-400 rounded-full text-2xl">
-                        <i class="fa-solid fa-people-group"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs uppercase tracking-widest text-emerald-600 font-semibold mb-1">Ketua BPK</p>
-                        <h3 class="font-bold text-emerald-900 mb-1">— (Nama Ketua BPK)</h3>
-                        <p class="text-sm text-stone-500">Badan Permusyawaratan Kampung</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Layanan Administrasi -->
-            <div class="bg-emerald-900 text-white p-8 md:p-12">
-                <div class="text-center mb-10">
-                    <h3 class="section-title text-2xl md:text-3xl font-bold mb-2">Layanan Administrasi Kampung</h3>
-                    <p class="text-emerald-200 max-w-2xl mx-auto">Layanan surat menyurat dan administrasi yang dapat diperoleh di kantor Kampung Dosay</p>
-                </div>
-                <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="bg-white/10 p-4 text-center rounded">
-                        <i class="fa-solid fa-id-card text-amber-400 text-2xl mb-2"></i>
-                        <p class="text-sm font-medium">Surat Keterangan Domisili</p>
-                    </div>
-                    <div class="bg-white/10 p-4 text-center rounded">
-                        <i class="fa-solid fa-file-signature text-amber-400 text-2xl mb-2"></i>
-                        <p class="text-sm font-medium">Surat Keterangan Usaha</p>
-                    </div>
-                    <div class="bg-white/10 p-4 text-center rounded">
-                        <i class="fa-solid fa-file-circle-check text-amber-400 text-2xl mb-2"></i>
-                        <p class="text-sm font-medium">Surat Keterangan Tidak Mampu</p>
-                    </div>
-                    <div class="bg-white/10 p-4 text-center rounded">
-                        <i class="fa-solid fa-house-circle-check text-amber-400 text-2xl mb-2"></i>
-                        <p class="text-sm font-medium">Surat Keterangan Lainnya</p>
-                    </div>
-                </div>
-                <p class="text-center text-emerald-300 text-sm mt-6">
-                    <i class="fa-solid fa-clock mr-2"></i>Jam Layanan: Senin – Jumat, 08.00 – 16.00 WIT
-                </p>
-            </div>
-        </div>
-    </section>
-    <!-- ===== /PEMERINTAHAN KAMPUNG ===== -->
-
-    <!-- ===== KONTAK ===== -->
-    <section id="kontak" class="py-16 md:py-24 bg-emerald-900 text-white">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="section-title text-4xl md:text-5xl font-bold mb-3">Hubungi Kami</h2>
-                <p class="text-emerald-100">Sampaikan pesan, pertanyaan, atau keperluan Anda kepada Kampung Dosay</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Info Kontak -->
-                <div>
-                    <div class="mb-10">
-                        <div class="flex items-start gap-4 text-2xl mb-8">
-                            <i class="fa-solid fa-location-dot text-amber-400 mt-1"></i>
-                            <div>
-                                <div class="font-medium text-lg">Alamat</div>
-                                <div class="text-emerald-200 text-base leading-relaxed" data-bind-html="contact.addressHtml">Kampung Dosay, Distrik Sentani Barat,<br>Kabupaten Jayapura, Provinsi Papua</div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center gap-4 text-2xl mb-8">
-                            <i class="fa-solid fa-phone text-amber-400"></i>
-                            <div>
-                                <div class="font-medium text-lg">Telepon / WhatsApp</div>
-                                <div class="text-emerald-200 text-base" data-bind-text="contact.phoneDisplay">+62 8xx-xxxx-xxxx</div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center gap-4 text-2xl mb-8">
-                            <i class="fa-solid fa-envelope text-amber-400"></i>
-                            <div>
-                                <div class="font-medium text-lg">Email</div>
-                                <div class="text-emerald-200 text-base" data-bind-text="contact.email">kampungdosay@gmail.com</div>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-4 text-2xl">
-                            <i class="fa-solid fa-clock text-amber-400"></i>
-                            <div>
-                                <div class="font-medium text-lg">Jam Operasional</div>
-                                <div class="text-emerald-200 text-base" data-bind-text="contact.operationalHours">Senin – Jumat: 08.00 – 16.00 WIT</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-6 text-3xl">
-                        <a href="#" target="_blank" class="hover:text-amber-400 transition-colors" aria-label="Facebook Kampung Dosay" data-bind-attr="href:contact.social.facebook">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a href="#" target="_blank" class="hover:text-amber-400 transition-colors" aria-label="Instagram Kampung Dosay" data-bind-attr="href:contact.social.instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="#" data-wa-link target="_blank" rel="noopener" class="hover:text-amber-400 transition-colors" aria-label="WhatsApp Kampung Dosay">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Form Kontak -->
-                <form onsubmit="kirimPesan(event)" class="space-y-6">
-                    <div>
-                        <input type="text" id="nama" placeholder="Nama lengkap" required
-                               class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400">
-                    </div>
-                    <div>
-                        <input type="tel" id="telpon" placeholder="Nomor HP / WhatsApp" required
-                               class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400">
-                    </div>
-                    <div>
-                        <select id="keperluan" required
-                                class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-emerald-200 focus:outline-none focus:border-amber-400 appearance-none option-custom">
-                            <option value="" disabled selected class="text-emerald-800">Pilih Keperluan...</option>
-                            <option value="Wisata Kampung" class="text-emerald-900">Wisata Kampung Dosay</option>
-                            <option value="Layanan Administrasi" class="text-emerald-900">Layanan Administrasi</option>
-                            <option value="Investasi & Kemitraan" class="text-emerald-900">Investasi &amp; Kemitraan</option>
-                            <option value="Kegiatan Budaya" class="text-emerald-900">Kegiatan Budaya &amp; Adat</option>
-                            <option value="Informasi Umum" class="text-emerald-900">Informasi Umum</option>
-                        </select>
-                    </div>
-                    <div>
-                        <textarea id="pesan" rows="4" placeholder="Tulis pesan atau pertanyaan Anda di sini..." required
-                                  class="w-full bg-white/10 border border-white/30 rounded-none px-6 py-4 text-white placeholder:text-emerald-200 focus:outline-none focus:border-amber-400 resize-none"></textarea>
-                    </div>
-                    <button type="submit"
-                            class="w-full bg-amber-500 hover:bg-amber-400 transition-colors text-emerald-900 font-semibold py-5 tracking-widest flex items-center justify-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-xl"></i> KIRIM PESAN KE WHATSAPP
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-    <!-- ===== /KONTAK ===== -->
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="bg-emerald-950 text-emerald-300 py-12">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="flex justify-center mb-6">
-                <img src="./images/logo-kabupaten-jayapura.png" 
-                    alt="Logo Kabupaten Jayapura - Kampung Dosay" 
-                    class="h-24 opacity-75 rounded-full"
-                    data-bind-attr="src:site.logo,alt:site.name"
-                    onerror="this.style.display='none'">
-            </div>
-            <p class="logo-text text-xl font-bold text-white mb-1" data-bind-text="hero.title">KAMPUNG DOSAY</p>
-            <p class="text-sm text-emerald-400 mb-4" data-bind-text="site.tagline">Distrik Sentani Barat &bull; Kabupaten Jayapura &bull; Provinsi Papua</p>
-            <p class="text-sm" data-bind-text="footer.copyright">© 2026 Pemerintah Kampung Dosay. Hak cipta dilindungi.</p>
-            <p class="text-xs mt-2 text-emerald-400" data-bind-text="footer.note">Menjaga warisan budaya Lembah Moi dan keindahan alam Pegunungan Cycloop — Papua.</p>
-            <p class="text-xs mt-4">
-                Powered by <a href="https://nokensoft.com" target="_blank" class="text-emerald-400 hover:underline" data-bind-text="footer.poweredByName" data-bind-attr="href:footer.poweredByUrl">Nokensoft.com</a>
-            </p>
-        </div>
-    </footer>
-    <!-- ===== /FOOTER ===== -->
-
-    <!-- ===== FLOATING ACTION BUTTONS ===== -->
-    <!-- Kanan bawah: tombol Chat WhatsApp di atas, tombol Back to Top di bawah -->
-    <div class="fixed bottom-5 right-5 z-[90] flex flex-col items-center gap-3 print:hidden">
-        <!-- Chat WhatsApp -->
-        <a data-wa-link data-wa-prefill
-           href="#"
-           target="_blank"
-           rel="noopener"
-           aria-label="Chat via WhatsApp"
-           title="Chat via WhatsApp"
-           class="fab flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300/60">
-            <i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i>
-        </a>
-        <!-- Back to Top -->
-        <button id="backToTop"
-                type="button"
-                aria-label="Kembali ke atas"
-                title="Kembali ke atas"
-                class="fab opacity-0 translate-y-4 pointer-events-none flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-emerald-900 hover:bg-emerald-800 text-amber-400 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-amber-300/60">
-            <i class="fa-solid fa-arrow-up text-lg md:text-xl"></i>
-        </button>
-    </div>
-    <!-- ===== /FLOATING ACTION BUTTONS ===== -->
-
-    <!-- ===== JAVASCRIPT ===== -->
-    <script>
-        /* ============================================================
-           KONFIGURASI SITUS (data.json)
-           ============================================================ */
-
-        /* Nilai bawaan; dipakai bila data.json gagal dimuat (mis. dibuka via file://). */
-        var SITE = {
-            site:    { name: 'Kampung Dosay' },
-            contact: { whatsappNumber: '628xxxxxxxxx' },
-            hero:    {
-                slides: [
-                    './images/gallery/dosay-anggrek.png',
-                    './images/gallery/dosay-berkemah-dansari.png',
-                    './images/gallery/dosay-kali-dansari.png',
-                    './images/gallery/dosay-traditional-dance.png'
-                ]
-            }
-        };
-
-        /* Ambil nilai objek dari path bertitik, mis. "contact.email". */
-        function getByPath(obj, path) {
-            return path.split('.').reduce(function (acc, key) {
-                return (acc == null) ? undefined : acc[key];
-            }, obj);
-        }
-
-        /* Terapkan binding teks/HTML/atribut data.json ke elemen [data-bind-*]. */
-        function applyBindings(data) {
-            document.querySelectorAll('[data-bind-text]').forEach(function (el) {
-                var val = getByPath(data, el.getAttribute('data-bind-text'));
-                if (val != null) el.textContent = val;
-            });
-            document.querySelectorAll('[data-bind-html]').forEach(function (el) {
-                var val = getByPath(data, el.getAttribute('data-bind-html'));
-                if (val != null) el.innerHTML = val;
-            });
-            document.querySelectorAll('[data-bind-attr]').forEach(function (el) {
-                el.getAttribute('data-bind-attr').split(',').forEach(function (pair) {
-                    var idx = pair.indexOf(':');
-                    if (idx === -1) return;
-                    var attr = pair.slice(0, idx).trim();
-                    var val  = getByPath(data, pair.slice(idx + 1).trim());
-                    if (val != null) el.setAttribute(attr, val);
-                });
-            });
-        }
-
-        /* Perbarui <title>, meta SEO/OG/Twitter, favicon, dan theme color. */
-        function applyMeta(data) {
-            var meta = data.meta || {};
-            var site = data.site || {};
-
-            function setContent(selector, value) {
-                if (value == null) return;
-                var el = document.querySelector(selector);
-                if (el) el.setAttribute('content', value);
-            }
-
-            if (meta.title) document.title = meta.title;
-            setContent('meta[name="title"]', meta.title);
-            setContent('meta[name="description"]', meta.description);
-            setContent('meta[name="keywords"]', meta.keywords);
-            setContent('meta[name="author"]', meta.author);
-            setContent('meta[property="og:title"]', meta.ogTitle || meta.title);
-            setContent('meta[property="og:description"]', meta.ogDescription || meta.description);
-            setContent('meta[property="og:image"]', meta.ogImage);
-            setContent('meta[property="og:url"]', site.url);
-            setContent('meta[property="og:site_name"]', site.name);
-            setContent('meta[name="twitter:title"]', meta.twitterTitle || meta.title);
-            setContent('meta[name="twitter:description"]', meta.twitterDescription || meta.description);
-            setContent('meta[name="twitter:image"]', meta.twitterImage || meta.ogImage);
-            setContent('meta[name="theme-color"]', site.themeColor);
-            setContent('meta[name="msapplication-TileColor"]', site.themeColor);
-
-            if (site.favicon) {
-                document.querySelectorAll('link[rel~="icon"], link[rel="apple-touch-icon"], link[rel="shortcut icon"]')
-                    .forEach(function (link) { link.setAttribute('href', site.favicon); });
-            }
-        }
-
-        /* Set href semua tombol/ikon WhatsApp ([data-wa-link]) dari nomor data.json. */
-        function applyWhatsappLinks(data) {
-            var contact = data.contact || {};
-            var number  = contact.whatsappNumber || SITE.contact.whatsappNumber;
-            document.querySelectorAll('[data-wa-link]').forEach(function (link) {
-                var text = link.hasAttribute('data-wa-prefill')
-                    ? contact.whatsappMessage
-                    : link.getAttribute('data-wa-text');
-                link.setAttribute('href', 'https://wa.me/' + number + (text ? '?text=' + encodeURIComponent(text) : ''));
-            });
-        }
-
-        /* ============================================================
-           HERO BACKGROUND SLIDESHOW
-           ============================================================ */
-        function initHeroSlideshow(images) {
-            var slideshow = document.getElementById('hero-slideshow');
-            if (!slideshow || !images || !images.length) return;
-            slideshow.innerHTML = '';
-
-            var slides = images.map(function (src) {
-                var slide = document.createElement('div');
-                slide.className = 'hero-slide';
-                slide.style.backgroundImage = "url('" + src + "')";
-                slideshow.appendChild(slide);
-                return slide;
-            });
-
-            var current  = 0;
-            var INTERVAL = 6000;
-
-            function activate(index) {
-                slides.forEach(function (s) { s.classList.remove('is-active'); });
-                var slide = slides[index];
-                slide.classList.add('is-active');
-                slide.classList.remove('zoom-in', 'zoom-out');
-                void slide.offsetWidth;
-                slide.classList.add(index % 2 === 0 ? 'zoom-in' : 'zoom-out');
-            }
-
-            activate(0);
-            if (slides.length > 1) {
-                setInterval(function () {
-                    current = (current + 1) % slides.length;
-                    activate(current);
-                }, INTERVAL);
-            }
-        }
-
-        /* ============================================================
-           SCROLL-SPY (menyorot menu sesuai posisi scroll)
-           ============================================================ */
-        function initScrollSpy() {
-            var sections = document.querySelectorAll('section[id]');
-            var navLinks = document.querySelectorAll('.nav-link');
-            if (!sections.length || !navLinks.length) return;
-
-            function setActive(id) {
-                navLinks.forEach(function (link) {
-                    link.classList.toggle('nav-active', link.getAttribute('href') === '#' + id);
-                });
-            }
-
-            var observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) setActive(entry.target.id);
-                });
-            }, { rootMargin: '-45% 0px -55% 0px', threshold: 0 });
-
-            sections.forEach(function (section) { observer.observe(section); });
-        }
-
-        /* ============================================================
-           TOMBOL MENGAMBANG: BACK TO TOP
-           ============================================================ */
-        function initBackToTop() {
-            var btn = document.getElementById('backToTop');
-            if (!btn) return;
-
-            function toggle() {
-                if (window.scrollY > 400) {
-                    btn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-                } else {
-                    btn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-                }
-            }
-
-            btn.addEventListener('click', function () {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            window.addEventListener('scroll', toggle, { passive: true });
-            toggle();
-        }
-
-        /* ============================================================
-           WHATSAPP & FORM KONTAK
-           ============================================================ */
-
-        /* Buka WhatsApp dengan pertanyaan tentang potensi tertentu. */
-        function hubungiKami(namaPotensi) {
-            var nomorWA = SITE.contact.whatsappNumber;
-            var teks = 'Halo Admin ' + SITE.site.name + ',%0A' +
-                       'Saya ingin mengetahui lebih lanjut tentang:%0A%0A' +
-                       '📌 *' + namaPotensi + '*%0A%0A' +
-                       'Mohon informasinya. Terima kasih!';
-            window.open('https://api.whatsapp.com/send?phone=' + nomorWA + '&text=' + teks, '_blank');
-        }
-
-        /* Kirim isian form kontak ke WhatsApp admin. */
-        function kirimPesan(event) {
-            event.preventDefault();
-            var nama      = document.getElementById('nama').value;
-            var telpon    = document.getElementById('telpon').value;
-            var keperluan = document.getElementById('keperluan').value;
-            var pesan     = document.getElementById('pesan').value;
-            var nomorWA   = SITE.contact.whatsappNumber;
-            var teks = 'Halo Admin ' + SITE.site.name + ', saya ingin menghubungi:%0A%0A' +
-                       '*Data Pengirim:*%0A' +
-                       '• Nama: ' + nama + '%0A' +
-                       '• HP/WA: ' + telpon + '%0A%0A' +
-                       '*Keperluan:*%0A👉 *' + keperluan + '*%0A%0A' +
-                       '*Pesan:*%0A"' + pesan + '"';
-            window.open('https://api.whatsapp.com/send?phone=' + nomorWA + '&text=' + teks, '_blank');
-        }
-
-        /* Smooth scroll ke section tujuan. */
-        function smoothScrollTo(sectionId) {
-            var element = document.getElementById(sectionId);
-            if (element) element.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        /* ============================================================
-           INISIALISASI
-           ============================================================ */
-        function applySiteData(data) {
-            SITE = data;
-            applyMeta(data);
-            applyBindings(data);
-            applyWhatsappLinks(data);
-            initHeroSlideshow((data.hero && data.hero.slides) || SITE.hero.slides);
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            initScrollSpy();
-            initBackToTop();
-
-            fetch('./data.json', { cache: 'no-cache' })
-                .then(function (res) {
-                    if (!res.ok) throw new Error('HTTP ' + res.status);
-                    return res.json();
-                })
-                .then(function (data) { applySiteData(data); })
-                .catch(function (err) {
-                    console.warn('data.json tidak dapat dimuat, memakai nilai bawaan.', err);
-                    applyWhatsappLinks(SITE);
-                    initHeroSlideshow(SITE.hero.slides);
-                });
-
-            console.log('%cWebsite siap!', 'color:#10b981; font-family:monospace');
-        });
-    </script>
-    
+        </section>
+        <!-- ===== /CTA KONTAK ===== -->
+    </main>
+
+    <!-- Footer + tombol mengambang (diisi oleh assets/js/layout.js) -->
+    <div id="site-footer"></div>
+
+    <script src="./assets/js/layout.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>
