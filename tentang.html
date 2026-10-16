@@ -4,22 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tentang | Kampung Dosay</title>
-    <meta name="title" content="Tentang | Kampung Dosay">
-    <meta name="description" content="Profil Kampung Dosay di kawasan Lembah Moi, kaki Pegunungan Cycloop, Distrik Sentani Barat, Kabupaten Jayapura, Papua.">
-    <meta name="keywords" content="Kampung Dosay, Sentani Barat, Kabupaten Jayapura, Papua, Lembah Moi, Suku Moi, Pegunungan Cycloop">
-    <meta name="author" content="Kampung Dosay">
-    <meta name="robots" content="index, follow">
+    <!-- ===== SEO ===== -->
+    <title>Tentang Kampung Dosay | Profil &amp; Batas Wilayah</title>
+    <meta name="title" content="Tentang Kampung Dosay | Profil &amp; Batas Wilayah">
+    <meta name="description" content="Profil Kampung Dosay di kawasan Lembah Moi, kaki Pegunungan Cycloop, Distrik Sentani Barat: sejarah singkat, ciri khas, dan batas wilayah kampung.">
+    <meta name="keywords" content="profil Kampung Dosay, Lembah Moi, Suku Moi, Pegunungan Cycloop, Sentani Barat">
+    <meta name="author" content="Pemerintah Kampung Dosay">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://kampungdosay.id/tentang.html">
+    <link rel="sitemap" type="application/xml" href="./sitemap.xml">
 
+    <!-- Geo -->
+    <meta name="geo.region" content="ID-PA">
+    <meta name="geo.placename" content="Kampung Dosay, Sentani Barat, Kabupaten Jayapura">
+    <meta name="geo.position" content="-2.556;140.388">
+    <meta name="ICBM" content="-2.556, 140.388">
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Tentang | Kampung Dosay">
-    <meta property="og:description" content="Profil Kampung Dosay di kawasan Lembah Moi, kaki Pegunungan Cycloop, Distrik Sentani Barat, Kabupaten Jayapura, Papua.">
-    <meta property="og:image" content="./images/logo-kabupaten-jayapura.png">
+    <meta property="og:locale" content="id_ID">
     <meta property="og:site_name" content="Kampung Dosay">
+    <meta property="og:title" content="Tentang Kampung Dosay | Profil &amp; Batas Wilayah">
+    <meta property="og:description" content="Profil Kampung Dosay di kawasan Lembah Moi, kaki Pegunungan Cycloop, Distrik Sentani Barat: sejarah singkat, ciri khas, dan batas wilayah kampung.">
+    <meta property="og:url" content="https://kampungdosay.id/tentang.html">
+    <meta property="og:image" content="https://kampungdosay.id/images/dosay-kali-dansari.png">
+    <meta property="og:image:alt" content="Kali Dansari, Kampung Dosay">
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tentang | Kampung Dosay">
-    <meta name="twitter:description" content="Profil Kampung Dosay di kawasan Lembah Moi, kaki Pegunungan Cycloop.">
-    <meta name="twitter:image" content="./images/logo-kabupaten-jayapura.png">
+    <meta name="twitter:title" content="Tentang Kampung Dosay | Profil &amp; Batas Wilayah">
+    <meta name="twitter:description" content="Profil Kampung Dosay di kawasan Lembah Moi, kaki Pegunungan Cycloop, Distrik Sentani Barat: sejarah singkat, ciri khas, dan batas wilayah kampung.">
+    <meta name="twitter:image" content="https://kampungdosay.id/images/dosay-kali-dansari.png">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://kampungdosay.id/tentang.html#webpage",
+          "url": "https://kampungdosay.id/tentang.html",
+          "name": "Tentang Kampung Dosay | Profil & Batas Wilayah",
+          "description": "Profil Kampung Dosay di kawasan Lembah Moi, kaki Pegunungan Cycloop, Distrik Sentani Barat: sejarah singkat, ciri khas, dan batas wilayah kampung.",
+          "inLanguage": "id-ID",
+          "isPartOf": {
+            "@id": "https://kampungdosay.id/#website"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Beranda",
+              "item": "https://kampungdosay.id/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Tentang",
+              "item": "https://kampungdosay.id/tentang.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <link rel="icon" type="image/png" href="./images/logo-kabupaten-jayapura.png">
     <link rel="apple-touch-icon" href="./images/logo-kabupaten-jayapura.png">
@@ -36,7 +88,7 @@
     <meta name="theme-color" content="#1a3c34">
     <meta name="msapplication-TileColor" content="#1a3c34">
 </head>
-<body data-page="tentang" data-page-title="Tentang" class="bg-stone-50 text-stone-800">
+<body data-page="tentang" class="bg-stone-50 text-stone-800">
 
     <div id="site-header"></div>
 
@@ -80,7 +132,61 @@
                     </div>
 
                     <div class="relative isolate">
-                        <img src="./images/dosay-kali-dansari.png" alt="Alam Kampung Dosay" class="w-full aspect-[4/3] object-cover rounded-lg shadow-xl">
+                        <!-- Slider foto kantor kampung (geser manual) -->
+                        <div x-data="{
+                                current: 0,
+                                touchX: null,
+                                slides: [
+                                    { img: './images/tampak-depan-kantor-kampung.jpg',      alt: 'Tampak depan Kantor Kampung Dosay' },
+                                    { img: './images/papan-nama-kantor-kampung-dosay.jpg', alt: 'Papan nama Kantor Kampung Dosay' },
+                                    { img: './images/dosay-kali-dansari.png',              alt: 'Alam Kampung Dosay' }
+                                ],
+                                go(i) { this.current = (i + this.slides.length) % this.slides.length; },
+                                swipeEnd(x) {
+                                    if (this.touchX === null) return;
+                                    var dx = x - this.touchX;
+                                    if (Math.abs(dx) > 40) this.go(this.current + (dx < 0 ? 1 : -1));
+                                    this.touchX = null;
+                                }
+                             }"
+                             @keydown.arrow-left="go(current - 1)"
+                             @keydown.arrow-right="go(current + 1)"
+                             @touchstart.passive="touchX = $event.changedTouches[0].clientX"
+                             @touchend="swipeEnd($event.changedTouches[0].clientX)"
+                             role="region"
+                             aria-roledescription="carousel"
+                             aria-label="Foto Kantor Kampung Dosay"
+                             class="relative overflow-hidden rounded-lg shadow-xl bg-stone-200 aspect-[4/3] select-none">
+
+                            <div class="flex h-full transition-transform duration-500 ease-out"
+                                 :style="'transform: translateX(-' + (current * 100) + '%)'">
+                                <template x-for="(slide, i) in slides" :key="slide.img">
+                                    <img :src="slide.img" :alt="slide.alt"
+                                         :aria-hidden="i !== current"
+                                         decoding="async" draggable="false"
+                                         class="w-full h-full flex-none object-cover">
+                                </template>
+                            </div>
+
+                            <button type="button" @click="go(current - 1)" aria-label="Foto sebelumnya"
+                                    class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/40 hover:bg-black/60 text-white transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400/60">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button type="button" @click="go(current + 1)" aria-label="Foto berikutnya"
+                                    class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/40 hover:bg-black/60 text-white transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400/60">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+
+                            <div class="absolute bottom-3 inset-x-0 flex justify-center gap-2">
+                                <template x-for="(slide, i) in slides" :key="'dot-' + i">
+                                    <button type="button" @click="go(i)"
+                                            :aria-label="'Tampilkan foto ' + (i + 1)"
+                                            :aria-current="i === current"
+                                            :class="i === current ? 'bg-amber-400 w-6' : 'bg-white/70 hover:bg-white w-2.5'"
+                                            class="h-2.5 rounded-full transition-all"></button>
+                                </template>
+                            </div>
+                        </div>
                         <div class="hidden sm:block absolute -bottom-6 -left-6 w-32 h-32 bg-amber-500 rounded-lg -z-10"></div>
                     </div>
                 </div>

@@ -55,13 +55,11 @@ function applyBindings(data) {
     });
 }
 
-/* Perbarui <title>, meta SEO/OG/Twitter, favicon, dan theme color.
-   Halaman dengan <body data-page-title="..."> memakai judul "<halaman> | <nama situs>". */
+/* Perbarui favicon dan theme color.
+   Title, description, canonical, Open Graph, dan JSON-LD sengaja ditulis statis di <head>
+   tiap halaman (bukan lewat JS) supaya terbaca mesin pencari & pratinjau media sosial. */
 function applyMeta(data) {
-    var meta = data.meta || {};
     var site = data.site || {};
-    var pageTitle = document.body.getAttribute('data-page-title');
-    var title = pageTitle ? pageTitle + ' | ' + (site.name || '') : meta.title;
 
     function setContent(selector, value) {
         if (value == null) return;
@@ -69,24 +67,8 @@ function applyMeta(data) {
         if (el) el.setAttribute('content', value);
     }
 
-    if (title) document.title = title;
-    setContent('meta[name="title"]', title);
-    setContent('meta[name="keywords"]', meta.keywords);
-    setContent('meta[name="author"]', meta.author);
-    setContent('meta[property="og:title"]', title || meta.ogTitle);
-    setContent('meta[property="og:image"]', meta.ogImage);
-    setContent('meta[property="og:site_name"]', site.name);
-    setContent('meta[name="twitter:title"]', title || meta.twitterTitle);
-    setContent('meta[name="twitter:image"]', meta.twitterImage || meta.ogImage);
     setContent('meta[name="theme-color"]', site.themeColor);
     setContent('meta[name="msapplication-TileColor"]', site.themeColor);
-
-    /* Deskripsi: hanya beranda yang memakai deskripsi umum dari data.json. */
-    if (!pageTitle) {
-        setContent('meta[name="description"]', meta.description);
-        setContent('meta[property="og:description"]', meta.ogDescription || meta.description);
-        setContent('meta[name="twitter:description"]', meta.twitterDescription || meta.description);
-    }
 
     if (site.favicon) {
         document.querySelectorAll('link[rel~="icon"], link[rel="apple-touch-icon"], link[rel="shortcut icon"]')
@@ -288,6 +270,34 @@ function initBackToTop() {
 }
 
 /* ============================================================
+   VISITOR COUNTER (api/visitor.php → data/visitors.json)
+   Setiap halaman mencatat kunjungan; angka hanya ditampilkan di
+   halaman yang memiliki #visitor-counter (beranda).
+   ============================================================ */
+function initVisitorCounter() {
+    var box = document.getElementById('visitor-counter');
+    var fmt = new Intl.NumberFormat('id-ID');
+
+    fetch('./api/visitor.php', { method: 'POST', cache: 'no-store' })
+        .then(function (res) {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.json();
+        })
+        .then(function (stats) {
+            if (!box) return;
+            ['daily', 'weekly', 'monthly', 'annual'].forEach(function (key) {
+                var el = box.querySelector('[data-visitor="' + key + '"]');
+                if (el && typeof stats[key] === 'number') el.textContent = fmt.format(stats[key]);
+            });
+            box.classList.remove('hidden');
+        })
+        .catch(function (err) {
+            /* Tanpa server PHP (mis. hosting statis), counter disembunyikan. */
+            console.warn('Visitor counter tidak tersedia.', err);
+        });
+}
+
+/* ============================================================
    FORM KONTAK → WHATSAPP
    ============================================================ */
 function kirimPesan(event) {
@@ -327,6 +337,7 @@ function applySiteData(data) {
 document.addEventListener('DOMContentLoaded', function () {
     initBackToTop();
     initClock(SITE.weather);
+    initVisitorCounter();
 
     fetch('./data.json', { cache: 'no-cache' })
         .then(function (res) {

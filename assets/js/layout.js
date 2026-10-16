@@ -142,23 +142,29 @@
                         '</div>' +
                     '</div>' +
                 '</div>' +
-                '<div class="pt-6 flex flex-col md:flex-row items-center justify-between gap-2 text-xs">' +
+                '<div class="pt-6 flex flex-col items-center justify-center gap-2 text-xs text-center">' +
                     '<p data-bind-text="footer.copyright">© ' + year + ' Pemerintah Kampung Dosay. Hak cipta dilindungi.</p>' +
-                    '<p>Powered by <a href="https://nokensoft.com" target="_blank" rel="noopener" class="text-emerald-400 hover:underline" data-bind-text="footer.poweredByName" data-bind-attr="href:footer.poweredByUrl">Nokensoft.com</a></p>' +
+                    '<p class="flex items-center gap-2">' +
+                        '<a href="https://nokensoft.com" target="_blank" rel="noopener" data-bind-attr="href:footer.poweredByUrl" aria-label="Nokensoft.com">' +
+                            '<img src="./images/nokensoft-logo.png" alt="Logo Nokensoft" width="24" height="24" loading="lazy" class="h-6 w-auto" onerror="this.style.display=\'none\'">' +
+                        '</a>' +
+                        '<span>Powered by <a href="https://nokensoft.com" target="_blank" rel="noopener" class="text-emerald-400 hover:underline" data-bind-text="footer.poweredByName" data-bind-attr="href:footer.poweredByUrl">Nokensoft.com</a></span>' +
+                    '</p>' +
                 '</div>' +
             '</div>' +
         '</footer>' +
 
         /* ===== FLOATING ACTION BUTTONS ===== */
+        /* Atas: Back to Top (muncul saat digulir) · Bawah: Chat WhatsApp */
         '<div class="fixed bottom-5 right-5 z-[90] flex flex-col items-center gap-3 print:hidden">' +
-            '<a data-wa-link data-wa-prefill href="#" target="_blank" rel="noopener" aria-label="Chat via WhatsApp" title="Chat via WhatsApp"' +
-            ' class="fab flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300/60">' +
-                '<i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i>' +
-            '</a>' +
             '<button id="backToTop" type="button" aria-label="Kembali ke atas" title="Kembali ke atas"' +
             ' class="fab opacity-0 translate-y-4 pointer-events-none flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-emerald-900 hover:bg-emerald-800 text-amber-400 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-amber-300/60">' +
                 '<i class="fa-solid fa-arrow-up text-lg md:text-xl"></i>' +
             '</button>' +
+            '<a data-wa-link data-wa-prefill href="#" target="_blank" rel="noopener" aria-label="Chat via WhatsApp" title="Chat via WhatsApp"' +
+            ' class="fab flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300/60">' +
+                '<i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i>' +
+            '</a>' +
         '</div>';
 
     var headerSlot = document.getElementById('site-header');
