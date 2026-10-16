@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /data/
+Disallow: /error/
+Disallow: /tools/
 
 Sitemap: https://kampungdosay.id/sitemap.xml

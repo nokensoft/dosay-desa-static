@@ -163,6 +163,7 @@
                 '</div>' +
                 '<div class="pt-6 flex flex-col items-center justify-center gap-2 text-xs text-center">' +
                     '<p data-bind-text="footer.copyright">© ' + year + ' Pemerintah Kampung Dosay. Hak cipta dilindungi.</p>' +
+                    '<p><a href="' + pageUrl('peta-situs') + '" class="hover:text-amber-400 transition-colors"><i class="fa-solid fa-sitemap mr-1" aria-hidden="true"></i>Peta Situs</a></p>' +
                     '<p class="flex items-center gap-2">' +
                         '<a href="https://nokensoft.com" target="_blank" rel="noopener" data-bind-attr="href:footer.poweredByUrl" aria-label="Nokensoft.com">' +
                             '<img src="' + ROOT + 'images/nokensoft-logo.png" alt="Logo Nokensoft" width="24" height="24" loading="lazy" class="h-6 w-auto" onerror="this.style.display=\'none\'">' +

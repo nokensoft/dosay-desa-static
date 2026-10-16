@@ -286,6 +286,9 @@ function initVisitorCounter() {
     var box = document.getElementById('visitor-counter');
     var fmt = new Intl.NumberFormat('id-ID');
 
+    /* Halaman error (404, 500, dst.) tidak dihitung sebagai kunjungan. */
+    if (document.body.getAttribute('data-page') === 'error') return;
+
     fetch(siteUrl('api/visitor.php'), { method: 'POST', cache: 'no-store' })
         .then(function (res) {
             if (!res.ok) throw new Error('HTTP ' + res.status);

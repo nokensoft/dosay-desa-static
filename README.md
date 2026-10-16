@@ -14,7 +14,7 @@ Situs statis (HTML + Tailwind CDN + Alpine.js), dengan satu skrip PHP kecil untu
 - **Galeri**: judul muncul di tengah foto saat hover, lightbox dengan navigasi sebelumnya/berikutnya
 - **Form kontak → WhatsApp**: pesan langsung terkirim ke nomor admin
 - **Visitor counter**: pengunjung unik harian, mingguan, bulanan, tahunan (per alamat IP, tanpa hitungan ganda, bot diabaikan)
-- **SEO**: title & description unik, canonical, Open Graph, Twitter Card, JSON-LD, `sitemap.xml`, `robots.txt`
+- **SEO**: title & description unik, canonical, Open Graph, Twitter Card, JSON-LD, `robots.txt`, `sitemap.xml` + image sitemap (dibuat otomatis), halaman Peta Situs
 - **Mudah diganti**: nama situs, logo, kontak, cuaca, dan footer diatur dari `data.json`
 - **Responsif**: menu hamburger & tata letak ringkas di HP
 
@@ -85,7 +85,9 @@ Setiap halaman berada di folder sendiri sebagai `index.html`, sehingga URL-nya t
 ├── fasilitas/index.html                      → /fasilitas/
 ├── galeri/index.html                         → /galeri/
 ├── kontak/index.html                         → /kontak/
-├── .htaccess              # redirect URL lama *.html → URL bersih
+├── peta-situs/index.html                     → /peta-situs/
+├── .htaccess              # URL bersih, halaman error, mode pemeliharaan
+├── error/                 # 400, 401, 403, 404, 500, 503 (.html)
 ├── data.json              # konfigurasi situs (nama, kontak, cuaca, footer)
 ├── assets/
 │   ├── css/style.css      # gaya bersama
@@ -95,7 +97,8 @@ Setiap halaman berada di folder sendiri sebagai `index.html`, sehingga URL-nya t
 ├── api/visitor.php        # API penghitung pengunjung
 ├── data/                  # visitors.json (dibuat otomatis, berisi IP)
 ├── images/
-├── sitemap.xml
+├── tools/generate-sitemap.js  # pembuat sitemap.xml
+├── sitemap.xml            # dibuat oleh tools/generate-sitemap.js
 └── robots.txt
 ```
 
@@ -160,7 +163,7 @@ Buat folder & file `berita/index.html` (salin dari halaman lain, mis. `tentang/i
 
 > Di dalam sub-folder, path aset memakai `../` (mis. `../images/foto.jpg`, `../assets/css/style.css`).
 
-Jangan lupa ganti canonical & Open Graph ke `https://kampungdosay.id/berita/`, lalu tambahkan URL-nya ke `sitemap.xml`.
+Jangan lupa ganti canonical & Open Graph ke `https://kampungdosay.id/berita/`, lalu perbarui sitemap (lihat bagian **Sitemap**).
 
 ## Deploy
 
@@ -178,6 +181,62 @@ Jangan lupa ganti canonical & Open Graph ke `https://kampungdosay.id/berita/`, l
   const TRUST_PROXY_HEADERS = true;
   ```
 - [ ] Domain berbeda dari `https://kampungdosay.id/`? Ganti di `<head>` tiap halaman (canonical, Open Graph, JSON-LD), `sitemap.xml`, dan `robots.txt`.
+- [ ] Situs dipasang di **akar domain** (bukan sub-folder), karena halaman error memakai path `/assets/...` dan `/images/...`.
+
+## Sitemap
+
+`sitemap.xml` dibuat otomatis dari semua halaman (beserta foto yang dipakai tiap halaman).
+Jalankan ulang setiap kali menambah/mengubah halaman atau foto:
+
+```bash
+node tools/generate-sitemap.js
+```
+
+- Halaman ber-`noindex` (mis. halaman error) otomatis tidak disertakan.
+- `<lastmod>` diambil dari tanggal commit terakhir tiap file.
+- Prioritas & frekuensi per halaman diatur di `RULES` dalam `tools/generate-sitemap.js`.
+
+Setelah situs online, daftarkan sitemap di **Google Search Console** → *Sitemaps* → isi:
+
+```text
+https://kampungdosay.id/sitemap.xml
+```
+
+Lakukan juga di **Bing Webmaster Tools** (bisa impor langsung dari Google Search Console).
+
+## Halaman Error
+
+| Kode | Halaman | Kapan muncul |
+|------|---------|--------------|
+| 400 | `error/400.html` | Permintaan tidak valid |
+| 401 | `error/401.html` | Perlu login |
+| 403 | `error/403.html` | Akses ditolak (mis. membuka folder `data/`) |
+| 404 | `error/404.html` | Halaman tidak ditemukan |
+| 500 | `error/500.html` | Kesalahan server |
+| 503 | `error/503.html` | Mode pemeliharaan |
+
+Apache sudah diatur lewat `.htaccess`. Untuk Nginx:
+
+```nginx
+error_page 400 /error/400.html;
+error_page 401 /error/401.html;
+error_page 403 /error/403.html;
+error_page 404 /error/404.html;
+error_page 500 502 504 /error/500.html;
+error_page 503 /error/503.html;
+```
+
+**Mode pemeliharaan:** buka `.htaccess`, hapus tanda `#` pada blok *MODE PEMELIHARAAN*, dan isi IP admin agar admin tetap bisa membuka situs:
+
+```apache
+<IfModule mod_rewrite.c>
+    RewriteCond %{REMOTE_ADDR} !^203\.0\.113\.10$
+    RewriteCond %{REQUEST_URI} !^/(error|assets|images)/
+    RewriteRule ^ - [R=503,L]
+</IfModule>
+```
+
+Kembalikan tanda `#` untuk menonaktifkannya.
 
 ## Lisensi
 
